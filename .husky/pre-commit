@@ -1,0 +1,2 @@
+echo "🔨 Running pre-commit..."
+pnpm lint
