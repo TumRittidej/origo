@@ -1,4 +1,3 @@
-import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { format } from 'date-fns'
@@ -32,25 +31,23 @@ import { Progress } from '@/components/ui/progress'
 import { IoIosCheckmarkCircleOutline } from 'react-icons/io'
 import { useNavigate } from 'react-router-dom'
 import { route } from '@/constants/routing'
+import { reserveFormSchema } from './schema'
+import type { ReserveFormValues } from './@types'
 
 const ResultPage: FC = () => {
   const navigate = useNavigate()
 
   const [isSubmitSuccess, setIsSubmitSuccess] = useState<boolean>(false)
-  const formSchema = z.object({
-    date: z.date(),
-    time: z.string().min(1, 'กรุณาเลือกเวลา')
-  })
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<ReserveFormValues>({
+    resolver: zodResolver(reserveFormSchema),
     defaultValues: {
       date: new Date(),
       time: '08:00'
     }
   })
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  function onSubmit(values: ReserveFormValues) {
     console.log('SUBMIT =>', values)
     setIsSubmitSuccess(true)
   }
@@ -226,7 +223,7 @@ const ResultPage: FC = () => {
           </div>
         </div>
       ) : (
-        <div className="text-center bg-primary p-6 mt-10 rounded-2xl">
+        <div className="text-center bg-primary p-6 mt-10 rounded-2xl animate-fade-in-up">
           <div className="text-secondary-color text-2xl border border-secondary-color bg-secondary-color/10 inline rounded-2xl px-4">
             THANK YOU
           </div>

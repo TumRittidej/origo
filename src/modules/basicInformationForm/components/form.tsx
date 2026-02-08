@@ -22,7 +22,7 @@ import type { FC } from 'react'
 import Container from '@/components/container'
 import { useNavigate } from 'react-router-dom'
 import { route } from '@/constants/routing'
-import { basicInformationSchema, defaultQuizSchema } from '../schema'
+import { basicInformationSchema, defaultBasicInfoSchema } from '../schema'
 import type { BasicInfoFormValues } from '../@types'
 
 const LeadInfoForm: FC = () => {
@@ -30,7 +30,7 @@ const LeadInfoForm: FC = () => {
 
   const form = useForm<BasicInfoFormValues>({
     resolver: zodResolver(basicInformationSchema),
-    defaultValues: defaultQuizSchema
+    defaultValues: defaultBasicInfoSchema
   })
 
   const onSubmit = (values: BasicInfoFormValues): void => {
