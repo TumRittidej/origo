@@ -1,7 +1,5 @@
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { format } from 'date-fns'
-import { th } from 'date-fns/locale'
 import { FaRegCalendar } from 'react-icons/fa6'
 
 import { Button } from '@/components/ui/button'
@@ -29,22 +27,18 @@ import {
 import { useState, type FC } from 'react'
 import { Progress } from '@/components/ui/progress'
 import { IoIosCheckmarkCircleOutline } from 'react-icons/io'
-import { useNavigate } from 'react-router-dom'
-import { route } from '@/constants/routing'
-import { reserveFormSchema } from './schema'
+import { defaultReserveValues, reserveFormSchema } from './schema'
 import type { ReserveFormValues } from './@types'
+import ThankYouSection from '@/components/thankYouSection'
+import { timeOptions } from '@/constants/time'
+import { formatDate } from '@/utils/formatDate'
 
 const ResultPage: FC = () => {
-  const navigate = useNavigate()
-
   const [isSubmitSuccess, setIsSubmitSuccess] = useState<boolean>(false)
 
   const form = useForm<ReserveFormValues>({
     resolver: zodResolver(reserveFormSchema),
-    defaultValues: {
-      date: new Date(),
-      time: '08:00'
-    }
+    defaultValues: defaultReserveValues
   })
 
   function onSubmit(values: ReserveFormValues) {
@@ -146,12 +140,10 @@ const ResultPage: FC = () => {
                           <FormControl>
                             <Button
                               variant="outline"
-                              className="text-white h-10 hover:bg-primary w-full justify-between text-left font-normal"
+                              className="text-white border-white/80 h-10 hover:bg-primary w-full justify-between text-left font-normal"
                             >
                               {field.value ? (
-                                format(field.value, 'dd MMMM yyyy', {
-                                  locale: th
-                                })
+                                formatDate(field.value)
                               ) : (
                                 <span>เลือกวันที่</span>
                               )}
@@ -193,19 +185,9 @@ const ResultPage: FC = () => {
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          {[
-                            '08:00',
-                            '09:00',
-                            '10:00',
-                            '11:00',
-                            '12:00',
-                            '13:00',
-                            '14:00',
-                            '15:00',
-                            '16:00'
-                          ].map((t) => (
-                            <SelectItem key={t} value={t}>
-                              {t} น.
+                          {timeOptions.map((option) => (
+                            <SelectItem key={option.value} value={option.value}>
+                              {option.label} น.
                             </SelectItem>
                           ))}
                         </SelectContent>
@@ -215,7 +197,7 @@ const ResultPage: FC = () => {
                   )}
                 />
 
-                <Button type="submit" className="p-4">
+                <Button type="submit" className="p-6 text-lg">
                   ยืนยันเวลานัดหมาย
                 </Button>
               </form>
@@ -223,24 +205,11 @@ const ResultPage: FC = () => {
           </div>
         </div>
       ) : (
-        <div className="text-center bg-primary p-6 mt-10 rounded-2xl animate-fade-in-up">
-          <div className="text-secondary-color text-2xl border border-secondary-color bg-secondary-color/10 inline rounded-2xl px-4">
-            THANK YOU
+        <ThankYouSection>
+          <div className="text-white/80 mt-4 text-lg border rounded-2xl py-2">
+            {`เวลาจอง: ${formatDate(form.getValues().date)} (${form.getValues().time})`}
           </div>
-          <h4 className="text-white mt-6 font-semibold text-lg md:text-2xl">
-            ขอบคุณสำหรับการนัดหมาย
-          </h4>
-          <p className="text-white/60 text-center text-sm md:text-base pt-2">
-            ทีมงานจะติดต่อกลับภายใน 24 ชั่วโมง
-            พร้อมสรุปแนวทางที่เหมาะกับธุรกิจของคุณ
-          </p>
-          <Button
-            className="p-6 text-lg mt-6 cursor-pointer"
-            onClick={() => navigate(route.home())}
-          >
-            กลับหน้าสู่หน้าแรก
-          </Button>
-        </div>
+        </ThankYouSection>
       )}
     </div>
   )

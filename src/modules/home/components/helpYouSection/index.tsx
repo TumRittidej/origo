@@ -1,7 +1,7 @@
 import type { FC } from 'react'
 import { FaChartLine, FaRegPaperPlane } from 'react-icons/fa6'
 import { FiCheckCircle } from 'react-icons/fi'
-import helpYouImage from '@/assets/help_you_image.webp'
+import helpYouImage from '@/assets/help_you_image.png'
 import Container from '@/components/container'
 
 const HelpYouSection: FC = () => {
@@ -56,7 +56,7 @@ const HelpYouSection: FC = () => {
           <div className="overflow-hidden relative /w-full /aspect-[7/6] rounded-[36px]">
             <img
               src={helpYouImage}
-              className="transform -translate-y-6 hover:scale-[1.09] duration-500"
+              className="transform hover:-translate-y-3 scale-[1.01] hover:scale-[1.09] duration-500"
             />
           </div>
         </div>

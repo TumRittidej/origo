@@ -20,7 +20,6 @@ import {
 } from '@/components/ui/select'
 import { useState, type FC } from 'react'
 import Container from '@/components/container'
-import { useNavigate } from 'react-router-dom'
 
 import {
   Popover,
@@ -31,21 +30,20 @@ import { format } from 'date-fns'
 import { th } from 'date-fns/locale'
 import { FaRegCalendar } from 'react-icons/fa6'
 import type { ContactFormValues } from './@types'
-import { contactSchema, defaultContactSchema } from './schema'
+import { contactSchema, defaultContactValues } from './schema'
 import { Calendar } from '@/components/ui/calendar'
 import Divider from '@/components/divider'
 import { Checkbox } from '@/components/ui/checkbox'
-import { route } from '@/constants/routing'
-// import { basicInformationSchema, defaultQuizSchema } from '../schema'
-// import type { BasicInfoFormValues } from '../@types'
+import ThankYouSection from '@/components/thankYouSection'
+import { timeOptions } from '@/constants/time'
+import { formatDate } from '@/utils/formatDate'
 
 const ContactPage: FC = () => {
-  const navigate = useNavigate()
   const [isSubmitSuccess, setIsSubmitSuccess] = useState<boolean>(false)
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
-    defaultValues: defaultContactSchema
+    defaultValues: defaultContactValues
   })
 
   const onSubmit = (values: ContactFormValues): void => {
@@ -82,7 +80,7 @@ const ContactPage: FC = () => {
                           <FormControl>
                             <Button
                               variant="outline"
-                              className="text-white h-10 border-white hover:bg-primary w-full justify-between text-left"
+                              className="text-white h-10 border-white/80 hover:bg-primary w-full justify-between text-left"
                             >
                               {field.value ? (
                                 format(field.value, 'dd MMMM yyyy', {
@@ -129,19 +127,9 @@ const ContactPage: FC = () => {
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          {[
-                            '08:00',
-                            '09:00',
-                            '10:00',
-                            '11:00',
-                            '12:00',
-                            '13:00',
-                            '14:00',
-                            '15:00',
-                            '16:00'
-                          ].map((t) => (
-                            <SelectItem key={t} value={t}>
-                              {t} น.
+                          {timeOptions.map((option) => (
+                            <SelectItem key={option.value} value={option.value}>
+                              {option.label} น.
                             </SelectItem>
                           ))}
                         </SelectContent>
@@ -323,15 +311,15 @@ const ContactPage: FC = () => {
                   control={form.control}
                   name="acceptPolicy"
                   render={({ field }) => (
-                    <FormItem className="flex flex-row items-start">
-                      <FormControl>
+                    <FormItem className="flex flex-row items-start cursor-pointer">
+                      <FormControl className="cursor-pointer">
                         <Checkbox
                           checked={field.value}
                           onCheckedChange={field.onChange}
                         />
                       </FormControl>
                       <div className="leading-tight">
-                        <FormLabel className="text-sm font-normal text-white">
+                        <FormLabel className="text-sm font-normal text-white cursor-pointer">
                           ยินยอมให้ทีมงานติดต่อกลับเพื่อให้คำปรึกษาเบื้องต้นเกี่ยวกับ
                           Market Signal
                         </FormLabel>
@@ -341,31 +329,23 @@ const ContactPage: FC = () => {
                   )}
                 />
 
-                <Button type="submit" className="p-6 text-lg w-full">
+                <Button
+                  type="submit"
+                  className="p-6 text-lg w-full cursor-pointer"
+                >
                   ยืนยันเวลานัดหมาย
                 </Button>
               </form>
             </Form>
           </>
         ) : (
-          <div className="text-center bg-primary p-6 mt-10 rounded-2xl animate-fade-in-up">
-            <div className="text-secondary-color text-2xl border border-secondary-color bg-secondary-color/10 inline rounded-2xl px-4">
-              THANK YOU
-            </div>
-            <h4 className="text-white mt-6 font-semibold text-lg md:text-2xl">
-              ขอบคุณสำหรับการนัดหมาย
-            </h4>
-            <p className="text-white/60 text-center text-sm md:text-base pt-2">
-              ทีมงานจะติดต่อกลับภายใน 24 ชั่วโมง
-              พร้อมสรุปแนวทางที่เหมาะกับธุรกิจของคุณ
-            </p>
-            <Button
-              className="p-6 text-lg mt-6 cursor-pointer"
-              onClick={() => navigate(route.home())}
-            >
-              กลับหน้าสู่หน้าแรก
-            </Button>
-          </div>
+          <ThankYouSection>
+            {
+              <div className="text-white/80 mt-4 text-lg border rounded-2xl py-2">
+                {`เวลาจอง: ${formatDate(form.getValues().date)} (${form.getValues().time})`}
+              </div>
+            }
+          </ThankYouSection>
         )}
       </div>
     </Container>

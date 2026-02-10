@@ -17,6 +17,7 @@ import { defaultQuizSchema, quizSchema } from './schema'
 import type { QuizFormValues } from './@types'
 import { useNavigate } from 'react-router-dom'
 import { route } from '@/constants/routing'
+import Logo from '@/components/logo'
 
 const QuizPage: FC = () => {
   const navigate = useNavigate()
@@ -83,6 +84,7 @@ const QuizPage: FC = () => {
         </div>
       ) : (
         <>
+          <Logo className="flex justify-center mb-4 text-4xl" />
           <Progress value={progress} />
 
           <div className="text-sm flex justify-between w-full mt-2 mb-4">
@@ -99,23 +101,23 @@ const QuizPage: FC = () => {
                   name={current.id as keyof QuizFormValues}
                   render={({ field }) => (
                     <FormItem className="animate-fade-in-up">
-                      <FormLabel className="text-3xl font-semibold">
+                      <FormLabel className="text-xl md:text-3xl font-semibold">
                         {current.title}
                       </FormLabel>
                       {current.type === 'choice' && (
                         <div className="space-y-6 mt-4">
-                          {current.options!.map((opt) => {
-                            const active = field.value === opt
+                          {current.options.map((option) => {
+                            const active = field.value === option
 
                             return (
                               <div
-                                key={opt}
+                                key={option}
                                 role="button"
                                 tabIndex={0}
                                 onClick={() => {
                                   form.setValue(
                                     current.id as keyof QuizFormValues,
-                                    opt,
+                                    option,
                                     {
                                       shouldDirty: true,
                                       shouldTouch: true,
@@ -124,12 +126,9 @@ const QuizPage: FC = () => {
                                   )
 
                                   if ([2, 7, 11].includes(safeStep)) {
-                                    setTimeout(
-                                      () => setShowInterstitial(true),
-                                      150
-                                    )
+                                    setShowInterstitial(true)
                                   } else if (safeStep < total - 1) {
-                                    setTimeout(() => setStep((s) => s + 1), 150)
+                                    setStep((s) => s + 1)
                                   }
                                 }}
                                 className={cn(
@@ -138,7 +137,7 @@ const QuizPage: FC = () => {
                                     'border-secondary-color bg-secondary-color text-black hover:bg-secondary-color shadow-secondary-color shadow-xl/10 ring-1 ring-primary'
                                 )}
                               >
-                                {opt}
+                                {option}
                               </div>
                             )
                           })}
