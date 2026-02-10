@@ -1,4 +1,5 @@
 import Divider from '@/components/divider'
+import Logo from '@/components/logo'
 import { type FC } from 'react'
 
 type FooterLink = {
@@ -30,12 +31,10 @@ export const FooterBrand: FC = () => {
   return (
     <div>
       <Divider />
-      <div className="text-center py-8">
+      <div className="text-center py-4">
         <div className="inline-flex flex-col items-center gap-6">
           <div>
-            <p className="text-2xl font-semibold tracking-tight text-white">
-              ORIG<span className="text-secondary-color">O</span>
-            </p>
+            <Logo />
             <p className="mt-3 text-sm text-white/60">
               Market Intelligence for International Trade
             </p>
