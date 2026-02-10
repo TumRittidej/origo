@@ -1,3 +1,4 @@
+import { timeOptions } from '@/constants/time'
 import { z } from 'zod'
 
 export const reserveFormSchema = z.object({
@@ -5,8 +6,8 @@ export const reserveFormSchema = z.object({
   time: z.string().min(1, 'กรุณาเลือกเวลา')
 })
 
-export const defaultReserveSchema = {
+export const defaultReserveValues = {
   date: new Date(),
-  time: '08:00'
+  time: timeOptions[0].value
 }
 

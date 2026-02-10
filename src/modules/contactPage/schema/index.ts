@@ -1,3 +1,4 @@
+import { timeOptions } from '@/constants/time'
 import { z } from 'zod'
 
 export const contactSchema = z.object({
@@ -15,7 +16,7 @@ export const contactSchema = z.object({
   })
 })
 
-export const defaultContactSchema = {
+export const defaultContactValues = {
   fullname: '',
   company: '',
   position: '',
@@ -24,6 +25,6 @@ export const defaultContactSchema = {
   phone: '',
   email: '',
   date: new Date(),
-  time: '08:00',
+  time: timeOptions[0].value,
   acceptPolicy: false
 }
