@@ -170,6 +170,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Star } from 'lucide-react'
 import Container from '@/components/container'
 import type { FC } from 'react'
+import { BiSolidQuoteLeft } from 'react-icons/bi'
 
 const reviews = [
   {
@@ -249,14 +250,19 @@ const ReviewsCarousel: FC = () => {
     <section className="py-16 sm:py-20 bg-background">
       <Container className="px-20!">
         <div className="text-center mb-10">
-          <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-semibold">
+          <h2 className="text-white items-center flex flex-col text-3xl sm:text-4xl md:text-5xl font-semibold">
+            <span className="text-white/50">
+              <BiSolidQuoteLeft size={140} />
+            </span>{' '}
             ผลลัพธ์จากลูกค้าของเรา
+            <h3 className="text-white/80 text-3xl font-normal mt-4">
+              ลูกค้าของเรา ว่าอย่างไรบ้าง
+            </h3>
           </h2>
           <p className="mt-2 text-sm text-muted-foreground">
             (อ้างอิงจากกรณีจริง ขอสงวนสิทธิ์ไม่เปิดเผยชื่อ)
           </p>
         </div>
-
         <Carousel>
           <CarouselContent>
             {reviews.map((r, i) => (
@@ -264,9 +270,9 @@ const ReviewsCarousel: FC = () => {
                 key={i}
                 className="pl-4 sm:basis-1/2 md:basis-1/3 lg:basis-1/4"
               >
-                <Card className="h-full bg-primary border-white/20 hover:border hover:border-secondary-color hover:shadow-secondary-color/10 hover:shadow-[0_0_50px] duration-500">
+                <Card className="h-full bg-primary border-white/5 hover:border hover:border-secondary-color hover:shadow-secondary-color/10 hover:shadow-[0_0_50px] duration-500">
                   <CardContent className="p-6 flex flex-col items-center text-center min-h-95">
-                    <div className="h-20 w-20 rounded-full border border-white/80 flex items-center justify-center text-xl text-white font-semibold">
+                    <div className="h-20 w-20 rounded-full border border-muted-foreground/50 flex items-center justify-center text-xl text-white font-semibold">
                       {r.initials}
                     </div>
 

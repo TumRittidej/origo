@@ -3,7 +3,7 @@ import AreYouReadySection from '@/modules/home/components/areYouReadySection'
 import BannerSection from './components/bannerSection'
 import ResultSection from './components/resultSection'
 import NotHardWorkSection from './components/notHardWork'
-// import AboutUsSection from './components/aboutUsSection'
+import AboutUsSection from './components/aboutUsSection'
 import StaticSection from './components/staticSection'
 import HelpYouSection from './components/helpYouSection'
 import ReviewSection from './components/reviewSection'
@@ -20,7 +20,7 @@ const HomePage: FC = () => {
 
       <NotHardWorkSection />
 
-      {/* <AboutUsSection /> */}
+      <AboutUsSection />
 
       <StaticSection />
 

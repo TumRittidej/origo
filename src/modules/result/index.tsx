@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { FaRegCalendar } from 'react-icons/fa6'
+import { FaCheck, FaRegCalendar } from 'react-icons/fa6'
 
 import { Button } from '@/components/ui/button'
 import { Calendar } from '@/components/ui/calendar'
@@ -26,7 +26,6 @@ import {
 } from '@/components/ui/select'
 import { useState, type FC } from 'react'
 import { Progress } from '@/components/ui/progress'
-import { IoIosCheckmarkCircleOutline } from 'react-icons/io'
 import { defaultReserveValues, reserveFormSchema } from './schema'
 import type { ReserveFormValues } from './@types'
 import ThankYouSection from '@/components/thankYouSection'
@@ -92,24 +91,21 @@ const ResultPage: FC = () => {
         </h2>
         <ul className="mt-4 space-y-3 text-white/75">
           <li className="flex gap-2 items-center group justify-center md:justify-start text-sm md:text-base">
-            <IoIosCheckmarkCircleOutline
-              size={24}
-              className="group-hover:text-secondary-color group-hover:scale-120 duration-100"
-            />
+            <div className="rounded-full p-1 bg-white/15">
+              <FaCheck size={16} color="white" />
+            </div>
             ตลาดที่ควรเร่ง มีระยะเวลาในการซื้อขาย
           </li>
           <li className="flex gap-2 items-center group justify-center md:justify-start text-sm md:text-base">
-            <IoIosCheckmarkCircleOutline
-              size={24}
-              className="group-hover:text-secondary-color group-hover:scale-120 duration-100"
-            />
+            <div className="rounded-full p-1 bg-white/15">
+              <FaCheck size={16} color="white" />
+            </div>
             ลูกค้าที่สร้างยอดขายต่อเนื่องและมีกำลังซื้อสูง
           </li>
           <li className="flex gap-2 items-center group justify-center md:justify-start text-sm md:text-base">
-            <IoIosCheckmarkCircleOutline
-              size={24}
-              className="group-hover:text-secondary-color group-hover:scale-120 duration-100"
-            />
+            <div className="rounded-full p-1 bg-white/15">
+              <FaCheck size={16} color="white" />
+            </div>
             วิธีทำให้ทีมใช้ข้อมูลเดียวกันในการตัดสินใจ
           </li>
         </ul>
@@ -140,14 +136,14 @@ const ResultPage: FC = () => {
                           <FormControl>
                             <Button
                               variant="outline"
-                              className="text-white border-white/80 h-10 hover:bg-primary w-full justify-between text-left font-normal"
+                              className="text-white border-white/20 h-10 hover:bg-primary w-full justify-between text-left font-normal"
                             >
                               {field.value ? (
                                 formatDate(field.value)
                               ) : (
                                 <span>เลือกวันที่</span>
                               )}
-                              <FaRegCalendar />
+                              <FaRegCalendar className="text-white/20" />
                             </Button>
                           </FormControl>
                         </PopoverTrigger>
@@ -207,7 +203,7 @@ const ResultPage: FC = () => {
       ) : (
         <ThankYouSection>
           <div className="text-white/80 mt-4 text-lg border rounded-2xl py-2">
-            {`เวลาจอง: ${formatDate(form.getValues().date)} (${form.getValues().time})`}
+            {`เวลาจอง: ${formatDate(form.getValues().date)} (${form.getValues().time}น.)`}
           </div>
         </ThankYouSection>
       )}

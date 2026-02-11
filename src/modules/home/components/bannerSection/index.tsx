@@ -9,7 +9,7 @@ const BannerSection = () => {
         <div className="ssss absolute inset-0"></div>
       </div>
       <div className="relative flex items-center justify-center md:justify-end mx-auto max-w-300 h-screen px-0 md:px-6">
-        <h1 className="font-heading text-white text-center">
+        <h1 className="font-heading text-white text-center" data-aos="fade-up">
           <div className="block w-full text-white text-3xl md:text-4xl lg:text-5xl">
             บ่อยครั้งไหมที่คุณกำลัง
             <span className="my-2 md:my-5 block w-full font-semibold text-secondary-color text-6xl md:text-7xl lg:text-8xl">
