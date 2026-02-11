@@ -28,19 +28,27 @@ export const FooterBrand: FC = () => {
       })
     }
   }
+
   return (
     <div>
       <Divider />
       <div className="text-center py-4">
         <div className="inline-flex flex-col items-center gap-6">
-          <div>
-            <Logo />
+          <div className="text-white/60">
+            <div className="mb-2">
+              <Logo />
+            </div>
+            <div className="text-white/60">บริษัท โอริโก้ คอนซัลติ้ง จำกัด</div>
+            <span className="text-sm flex gap-2 items-center justify-center">
+              098-765-4321
+            </span>
             <p className="mt-3 text-sm text-white/60">
               Market Intelligence for International Trade
             </p>
           </div>
 
           <nav className="flex flex-wrap items-center justify-center gap-6 text-sm">
+            <Divider className="my-0!" />
             {links.map((link, index) => (
               <span key={link.href} className="flex items-center gap-6">
                 <a

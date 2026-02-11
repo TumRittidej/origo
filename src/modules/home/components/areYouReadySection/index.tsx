@@ -1,6 +1,5 @@
 import type { FC } from 'react'
 import Container from '@/components/container'
-import { IoIosCheckmarkCircleOutline } from 'react-icons/io'
 import { Progress } from '@/components/ui/progress'
 import Divider from '@/components/divider'
 import { FaArrowRight, FaCheck } from 'react-icons/fa6'
@@ -19,55 +18,53 @@ const AreYouReadySection: FC = () => {
             <h2 className="text-white leading-tight text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
               พร้อมแล้วหรือยัง?
             </h2>
-            <p className="font-light mt-2 leading-relaxed text-white/90 text-[20px] md:text-[28px] lg:text-[32px] xl:text-[40px]">
-              คำถามเพียง <b>3 นาที</b> <br /> ที่จะพาคุณออกไปจากจุดเดิม
+            <p className="font-light mb-8 md:mb-0 mt-2 md:leading-14 text-white/90 text-[20px] md:text-[28px] lg:text-[32px] xl:text-[40px]">
+              คำถามเพียง <span className="font-semibold">3 นาที</span>
+              <div>ที่จะพาคุณออกไปจากจุดเดิม</div>
             </p>
-            <Divider className="hidden md:block" />
+            <Divider className="hidden md:block w-20! h-1!" />
             <ul className="mt-4 md:mt-8 space-y-3 text-base md:text-lg text-white/75">
               <li className="flex gap-2 items-center group justify-center md:justify-start">
-                <IoIosCheckmarkCircleOutline
-                  size={24}
-                  className="group-hover:text-secondary-color group-hover:scale-120 duration-100"
-                />
+                <div className="rounded-full p-1 bg-white/15">
+                  <FaCheck size={16} color="white" />
+                </div>
                 เพื่อกำหนดทิศทางได้แม่นยำขึ้น
               </li>
               <li className="flex gap-2 items-center group justify-center md:justify-start">
-                <IoIosCheckmarkCircleOutline
-                  size={24}
-                  className="group-hover:text-secondary-color group-hover:scale-120 duration-100"
-                />
+                <div className="rounded-full p-1 bg-white/15">
+                  <FaCheck size={16} color="white" />
+                </div>
                 เพิ่มโอกาสในการปิดการขายได้มากขึ้น
               </li>
               <li className="flex gap-2 items-center group justify-center md:justify-start">
-                <IoIosCheckmarkCircleOutline
-                  size={24}
-                  className="group-hover:text-secondary-color group-hover:scale-120 duration-100"
-                />
+                <div className="rounded-full p-1 bg-white/15">
+                  <FaCheck size={16} color="white" />
+                </div>
                 ที่จะมีเครื่องมือที่ดีกว่าเดิม
               </li>
             </ul>
 
             <Button
-              className="cursor-pointer text-xl md:text-[28px] p-6 md:px-10 md:py-8 mt-6 group"
+              className="cursor-pointer text-xl md:text-[28px] p-6 md:px-10 md:py-8 mt-8 group"
               onClick={() => navigate(route.basicInformationForm())}
             >
               เริ่มประเมิน (ฟรี){' '}
-              <div className="text-white bg-black rounded-full p-1 md:p-2 text-[18px] md:text-[20px] group-hover:transform group-hover:translate-x-1 duration-200">
+              <div className="text-white bg-black rounded-full p-1 md:p-2 text-[18px] md:text-[20px] group-hover:rotate-45 duration-300">
                 <FaArrowRight />
               </div>
             </Button>
           </div>
           <Divider className="md:hidden" />
           <div>
-            <div className="relative w-full rounded-3xl p-5 md:p-6 bg-white/5 border-secondary-color border hover:shadow-lg/30 hover:shadow-secondary-color-hover transition-all duration-300 hover:transform hover:-translate-1">
+            <div className="relative w-full rounded-3xl p-5 md:p-6 bg-white/5 border-white/10 border hover:shadow-[0_0_10px] hover:shadow-secondary-color transition-all duration-300 hover:transform hover:-translate-1">
               <p className="text-white/70 pb-4 lg:text-lg">
                 สถานะ Market Signal ของคุณ
               </p>
               <div className="flex flex-col items-center pb-4">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full border-4 border-white/20 text-xl font-semibold text-secondary-color">
+                <div className="flex h-24 w-24 items-center justify-center rounded-full border-2 border-white/20 text-3xl p-2 font-semibold text-secondary-color">
                   89%
                 </div>
-                <p className="text-white mt-2 font-semibold text-sm lg:text-base">
+                <p className="text-white mt-2 font-semibold text-base lg:text-lg">
                   พร้อมเติบโตอย่างมีทิศทาง
                 </p>
               </div>

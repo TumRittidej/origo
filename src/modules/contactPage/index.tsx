@@ -54,7 +54,7 @@ const ContactPage: FC = () => {
 
   return (
     <Container className="py-12 max-w-230!">
-      <div className="bg-primary p-8 rounded-3xl border border-secondary-color">
+      <div className="p-8 rounded-3xl">
         {!isSubmitSuccess ? (
           <>
             <h1 className="text-secondary-color text-2xl md:text-4xl font-semibold">
@@ -80,7 +80,7 @@ const ContactPage: FC = () => {
                           <FormControl>
                             <Button
                               variant="outline"
-                              className="text-white h-10 border-white/80 hover:bg-primary w-full justify-between text-left"
+                              className="text-white h-10 border-white/20 hover:bg-primary w-full justify-between text-left"
                             >
                               {field.value ? (
                                 format(field.value, 'dd MMMM yyyy', {
@@ -89,7 +89,7 @@ const ContactPage: FC = () => {
                               ) : (
                                 <span>เลือกวันที่</span>
                               )}
-                              <FaRegCalendar />
+                              <FaRegCalendar className="text-white/20" />
                             </Button>
                           </FormControl>
                         </PopoverTrigger>
@@ -203,7 +203,10 @@ const ContactPage: FC = () => {
                           <SelectItem value="ฝ่ายกลยุทธ์">
                             ฝ่ายกลยุทธ์
                           </SelectItem>
-                          <SelectItem value="อื่นๆ">อื่น ๆ</SelectItem>
+                          <SelectItem value="ฝ่ายส่งออก">ฝ่ายส่งออก</SelectItem>
+                          <SelectItem value="ตำแหน่งอื่น ๆ">
+                            ตำแหน่งอื่น ๆ
+                          </SelectItem>
                         </SelectContent>
                       </Select>
                       <FormMessage />

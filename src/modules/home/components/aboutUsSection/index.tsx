@@ -15,6 +15,7 @@ const AboutUsSection: FC = () => {
           <div className="overflow-hidden rounded-2xl">
             <img
               src={aboutMeImage}
+              alt="origo"
               className="h-full w-full object-cover object-[75%_100%] scale-[1.16] hover:scale-[1.2] -translate-y-[4%] transform duration-500"
             />
           </div>

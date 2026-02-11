@@ -2,6 +2,7 @@ import Container from '@/components/container'
 import type { FC } from 'react'
 
 import { TbArrowBigDownFilled, TbArrowBigUpFilled } from 'react-icons/tb'
+import AnimatedCounter from '@/components/animatedCount'
 
 const ResultSection: FC = () => {
   return (
@@ -109,9 +110,11 @@ const ResultSection: FC = () => {
                   ฐานลูกค้าเติบโต
                 </p>
                 <div className="mt-4 md:mt-6 flex flex-col md:flex-row items-center justify-center md:gap-6">
-                  <span className="text-[3.3rem] md:text-[3.96rem] font-semibold text-white">
-                    250%
-                  </span>
+                  <AnimatedCounter
+                    end={250}
+                    suffix="%"
+                    className="text-white font-semibold text-5xl lg:text-7xl"
+                  />
                   <div>
                     <TbArrowBigUpFilled className="text-7xl text-lime-600" />
                   </div>
@@ -123,9 +126,11 @@ const ResultSection: FC = () => {
                   ต้นทุนหาลูกค้าลดลง
                 </p>
                 <div className="mt-4 md:mt-6 flex flex-col md:flex-row items-center justify-center md:gap-6">
-                  <span className="text-[3.3rem] md:text-[3.96rem] font-semibold text-white">
-                    85%
-                  </span>
+                  <AnimatedCounter
+                    end={85}
+                    suffix="%"
+                    className="text-white font-semibold text-5xl lg:text-7xl"
+                  />
                   <div>
                     <TbArrowBigDownFilled className="text-7xl text-orange-800" />
                   </div>
