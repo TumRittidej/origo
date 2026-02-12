@@ -44,7 +44,7 @@ const LeadInfoForm: FC = () => {
   return (
     <Container className="py-12 max-w-200!">
       <h1 className="text-white text-4xl font-semibold">เริ่มทำแบบประเมิน</h1>
-      <p className="text-white/60 text-lg py-4">
+      <p className="text-white/60 text-lg pt-4 pb-10">
         ข้อมูลเหล่านี้จะช่วยให้คำแนะนำที่เหมาะสมกับธุรกิจของคุณ
       </p>
       <Form {...form}>

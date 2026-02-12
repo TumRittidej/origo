@@ -1,5 +1,5 @@
 import Divider from '@/components/divider'
-import Logo from '@/components/logo'
+import FullLogoWhite from '@/assets/full_logo_white.png'
 import { type FC } from 'react'
 
 type FooterLink = {
@@ -35,8 +35,8 @@ export const FooterBrand: FC = () => {
       <div className="text-center py-4">
         <div className="inline-flex flex-col items-center gap-6">
           <div className="text-white/60">
-            <div className="mb-2">
-              <Logo />
+            <div className="mb-2 w-25 m-auto">
+              <img src={FullLogoWhite} />
             </div>
             <div className="text-white/60">บริษัท โอริโก้ คอนซัลติ้ง จำกัด</div>
             <span className="text-sm flex gap-2 items-center justify-center">

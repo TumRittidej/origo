@@ -51,7 +51,7 @@ const ResultPage: FC = () => {
         สถานะ Market Signal ของคุณ
       </p>
       <div className="flex flex-col items-center pb-4">
-        <div className="flex h-20 w-20 items-center justify-center rounded-full border-4 border-white/20 text-2xl font-semibold text-secondary-color">
+        <div className="flex h-24 w-24 items-center justify-center rounded-full border-2 border-white/20 text-3xl p-2 mb-4 font-semibold text-secondary-color">
           42%
         </div>
         <h2 className="text-white mt-2 font-semibold md:text-lg">

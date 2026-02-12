@@ -8,7 +8,7 @@ const Layout: FC = () => {
     <>
       <Header />
 
-      <div className="overflow-y-auto pt-16">
+      <div className="overflow-y-auto">
         <Outlet />
       </div>
 

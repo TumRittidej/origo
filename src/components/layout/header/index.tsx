@@ -1,4 +1,4 @@
-import { useState, type FC, type MouseEvent } from 'react'
+import { useState, useEffect, type FC, type MouseEvent } from 'react'
 import { X } from 'lucide-react'
 import LogoMenu from '@/assets/logo_menu.png'
 import { route } from '@/constants/routing'
@@ -13,26 +13,35 @@ const navItems = [
 
 const Header: FC = () => {
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 10)
+    }
+
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   const handleScroll = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
-
     const target = document.querySelector(href)
     if (target) {
-      target.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      })
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }
+    setOpen(false)
   }
 
   return (
-    <nav className="fixed flex items-center justify-between top-0 h-16 z-50 w-full bg-black">
-      <Container className="flex items-center justify-between w-full">
+    <nav
+      className={`fixed top-0 z-50 w-full h-16 transition-all duration-300 ${
+        scrolled ? 'bg-black/90 backdrop-blur shadow-lg' : 'bg-transparent'
+      }`}
+    >
+      <Container className="flex items-center justify-between w-full h-full">
         <a href={route.home()} className="w-8">
-          <div>
-            <img src={LogoMenu} alt="logo_menu" />
-          </div>
+          <img src={LogoMenu} alt="logo_menu" />
         </a>
 
         <nav className="hidden md:flex items-center gap-8">
@@ -42,10 +51,10 @@ const Header: FC = () => {
               href={item.href}
               onClick={(e) => handleScroll(e, item.href)}
               className="relative inline-block text-white/60
-                    transition-colors duration-300 hover:text-secondary-color
-                    after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0
-                    after:bg-secondary-color after:transition-all after:duration-300
-                    hover:after:w-full"
+                transition-colors duration-300 hover:text-secondary-color
+                after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0
+                after:bg-secondary-color after:transition-all after:duration-300
+                hover:after:w-full"
             >
               {item.label}
             </a>
@@ -54,7 +63,7 @@ const Header: FC = () => {
 
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden text-white"
+          className="md:hidden text-white cursor-pointer"
           aria-label="Toggle Menu"
         >
           {open ? <X size={28} /> : <CiMenuFries size={28} />}
@@ -77,22 +86,25 @@ const Header: FC = () => {
           <a href={route.home()} className="w-8">
             <img src={LogoMenu} alt="logo_menu" />
           </a>
-          <button onClick={() => setOpen(false)} className="text-white">
+          <button
+            onClick={() => setOpen(false)}
+            className="text-white cursor-pointer"
+          >
             <X size={24} />
           </button>
         </div>
 
-        <nav className="inline-flex flex-col w-full items-center px-6 py-6 space-y-5 bg-primary">
+        <nav className="flex flex-col items-center px-6 py-6 space-y-5">
           {navItems.map((item) => (
             <a
               key={item.label}
               href={item.href}
-              className="relative inline-block /inline-block text-white/60 w-fit
-                    transition-colors duration-300 hover:text-secondary-color
-                    after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0
-                    after:bg-secondary-color after:transition-all after:duration-300
-                    hover:after:w-full"
-              onClick={() => setOpen(false)}
+              onClick={(e) => handleScroll(e, item.href)}
+              className="relative inline-block text-white/60
+                transition-colors duration-300 hover:text-secondary-color
+                after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0
+                after:bg-secondary-color after:transition-all after:duration-300
+                hover:after:w-full"
             >
               {item.label}
             </a>

@@ -9,20 +9,37 @@ const BannerSection = () => {
         <div className="ssss absolute inset-0"></div>
       </div>
       <div className="relative flex items-center justify-center md:justify-end mx-auto max-w-300 h-screen px-0 md:px-6">
-        <h1 className="font-heading text-white text-center" data-aos="fade-up">
+        <h1 className="font-heading text-white text-center">
           <div className="block w-full text-white text-3xl md:text-4xl lg:text-5xl">
-            บ่อยครั้งไหมที่คุณกำลัง
-            <span className="my-2 md:my-5 block w-full font-semibold text-secondary-color text-6xl md:text-7xl lg:text-8xl">
+            <div data-aos="fade-up" data-aos-delay="100">
+              บ่อยครั้งไหมที่คุณกำลัง
+            </div>
+            <span
+              className="my-2 md:my-5 block w-full font-semibold text-secondary-color text-6xl md:text-7xl lg:text-8xl"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
               "ทำงานหนัก"
             </span>
-            แต่ไม่แน่ใจว่ามาถูกทาง
+            <div data-aos="fade-up" data-aos-delay="300">
+              แต่ไม่แน่ใจว่ามาถูกทาง
+            </div>
           </div>
-          <p className="pt-8 text-lg lg:text-2xl text-center md:text-right text-white/80">
+          <p
+            className="pt-8 text-lg lg:text-2xl text-center md:text-right text-white/80"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
             ยอดขายต่างประเทศยังไม่โตแม้ลงทุนเพิ่ม
             <br />
             เครื่องมือมากขึ้นแต่ความ{' '}
-            <span className="underline underline-offset-4 decoration-secondary-color">
+            <span className="relative inline-block">
               ชัดเจนน้อยลง
+              <span
+                data-aos="slide-right"
+                data-aos-delay="300"
+                className="absolute left-0 -bottom-1 h-0.5 w-full bg-secondary-color"
+              />
             </span>
           </p>
         </h1>
