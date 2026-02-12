@@ -11,17 +11,17 @@ const AboutUsPage: FC = () => {
   const navigate = useNavigate()
 
   return (
-    <section className="bg-primary text-white min-h-screen">
-      <div className="relative h-65 md:h-105 w-full overflow-hidden bg-primary">
+    <section className="bg-background text-white min-h-screen">
+      <div className="relative h-65 md:h-105 w-full overflow-hidden bg-background">
         <img
           src={AboutUsImage}
           alt="Origo Office"
           className="absolute inset-0 h-full w-full object-cover"
         />
 
-        <div className="absolute inset-0 bg-primary/70" />
+        <div className="absolute inset-0 bg-background/70" />
 
-        <div className="absolute inset-0 bg-linear-to-b from-transparent via-primary/40 to-primary" />
+        <div className="absolute inset-0 bg-linear-to-b from-transparent via-background/40 to-background" />
 
         <div className="relative z-10 flex h-full w-full items-center justify-center text-center">
           <h1 className="text-6xl md:text-8xl font-semibold text-white/80 md:leading-20">
@@ -31,7 +31,7 @@ const AboutUsPage: FC = () => {
       </div>
 
       <Container>
-        <div className="space-y-2 mt-12">
+        <div className="space-y-2 mt-12 my-8">
           <h2 className="text-2xl font-semibold text-white sm:text-3xl">
             จุดเริ่มต้นของ ORIGO
           </h2>
@@ -95,7 +95,7 @@ const AboutUsPage: FC = () => {
       <Divider />
       <div className="text-center py-12">
         <div className="text-white/90 text-2xl font-semibold">
-          พร้อมที่จะเริ่มต้นกับเราใช่ยัง?
+          พร้อมที่จะเริ่มต้นกับเราแล้วหรือยัง?
         </div>
         <div className="text-white/60 pb-4">
           ให้เราช่วยออกแบบเส้นทางการเติบโตที่ชัดเจนสำหรับธุรกิจของคุณ
