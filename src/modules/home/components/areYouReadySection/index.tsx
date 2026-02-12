@@ -18,10 +18,10 @@ const AreYouReadySection: FC = () => {
             <h2 className="text-white leading-tight text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
               พร้อมแล้วหรือยัง?
             </h2>
-            <p className="font-light mb-8 md:mb-0 mt-2 md:leading-14 text-white/90 text-[20px] md:text-[28px] lg:text-[32px] xl:text-[40px]">
+            <div className="font-light mb-8 md:mb-0 mt-2 md:leading-14 text-white/90 text-[20px] md:text-[28px] lg:text-[32px] xl:text-[40px]">
               คำถามเพียง <span className="font-semibold">3 นาที</span>
               <div>ที่จะพาคุณออกไปจากจุดเดิม</div>
-            </p>
+            </div>
             <Divider className="hidden md:block w-20! h-1!" />
             <ul className="mt-4 md:mt-8 space-y-3 text-base md:text-lg text-white/75">
               <li className="flex gap-2 items-center group justify-center md:justify-start">

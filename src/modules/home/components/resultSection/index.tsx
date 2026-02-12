@@ -1,10 +1,30 @@
 import Container from '@/components/container'
-import type { FC } from 'react'
+import { useEffect, useRef, useState, type FC } from 'react'
 
 import { TbArrowBigDownFilled, TbArrowBigUpFilled } from 'react-icons/tb'
 import AnimatedCounter from '@/components/animatedCount'
 
 const ResultSection: FC = () => {
+  const ref = useRef<HTMLDivElement>(null)
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.4 }
+    )
+
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
   return (
     <section id="result_section" className="py-14 md:py-20">
       <Container>
@@ -32,7 +52,7 @@ const ResultSection: FC = () => {
           </div>
 
           <div className="mt-12 rounded-3xl bg-primary px-8 py-8 sm:px-12 sm:py-10 ">
-            <div className="relative overflow-hidden rounded-2xl border border-white/20 mb-8 p-2 sm:px-8 sm:py-8 hidden md:block">
+            {/* <div className="relative overflow-hidden rounded-2xl border border-white/20 mb-8 p-2 sm:px-8 sm:py-8 hidden md:block">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,191,90,0.18),transparent_60%)]" />
               <div className="relative">
                 <svg
@@ -100,6 +120,92 @@ const ResultSection: FC = () => {
                   <p className="-mt-4 text-3xl text-white/95 sm:text-4xl">
                     ล้านบาท
                   </p>
+                </div>
+              </div>
+            </div> */}
+
+            <div
+              ref={ref}
+              className="relative overflow-hidden rounded-2xl border border-white/20 mb-8 p-2 sm:px-8 sm:py-8 hidden md:block"
+            >
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,191,90,0.18),transparent_60%)]" />
+              <div className="relative">
+                <svg
+                  viewBox="0 0 720 240"
+                  className="w-full"
+                  role="img"
+                  aria-label="ยอดขายเติบโต 4 เดือน"
+                >
+                  <defs>
+                    <linearGradient id="lineGlow" x1="0" x2="1" y1="0" y2="0">
+                      <stop
+                        offset="0%"
+                        stopColor="#FFB347"
+                        stopOpacity="0.85"
+                      />
+                      <stop offset="100%" stopColor="#FFBF5A" stopOpacity="1" />
+                    </linearGradient>
+                  </defs>
+
+                  {/* Grid */}
+                  <g stroke="rgba(255,255,255,0.14)" strokeWidth="1">
+                    <line x1="40" y1="20" x2="700" y2="20" />
+                    <line x1="40" y1="70" x2="700" y2="70" />
+                    <line x1="40" y1="120" x2="700" y2="120" />
+                    <line x1="40" y1="170" x2="700" y2="170" />
+                    <line x1="40" y1="220" x2="700" y2="220" />
+                  </g>
+
+                  {/* Animated line */}
+                  <path
+                    d="M80 210 L280 145 L470 115 L650 60"
+                    fill="none"
+                    stroke="url(#lineGlow)"
+                    strokeWidth="3.5"
+                    className={`graph-line ${visible ? 'draw' : ''}`}
+                  />
+
+                  {/* Dots */}
+                  {/* <g
+                    className={`graph-dot ${visible ? 'show' : ''}`}
+                    fill="#FFBF5A"
+                  >
+                    <circle cx="80" cy="210" r="4.5" />
+                    <circle cx="280" cy="145" r="4.5" />
+                    <circle cx="470" cy="115" r="4.5" />
+                    <circle cx="650" cy="60" r="4.5" />
+                  </g> */}
+
+                  {/* Labels */}
+                  <g fill="rgba(255,255,255,0.6)" fontSize="12">
+                    <text x="70" y="234">
+                      Month 1
+                    </text>
+                    <text x="260" y="234">
+                      Month 2
+                    </text>
+                    <text x="445" y="234">
+                      Month 3
+                    </text>
+                    <text x="620" y="234">
+                      Month 4
+                    </text>
+                  </g>
+                </svg>
+
+                <div className="pointer-events-none absolute top-0 md:left-10 lg:left-30 /right-6 /top-24 /sm:right-10">
+                  <p className="text-white/60  text-xl lg:text-2xl">
+                    ยอดขายรวมมากกว่า
+                  </p>
+                  {/* <div className="font-semibold text-secondary-color text-4xl lg:text-6xl">
+                    4,000+
+                  </div> */}
+                  <AnimatedCounter
+                    end={4000}
+                    suffix="+"
+                    className="font-semibold text-secondary-color text-4xl lg:text-6xl"
+                  />
+                  <p className="text-white/95 text-2xl lg:text-4xl">ล้านบาท</p>
                 </div>
               </div>
             </div>
