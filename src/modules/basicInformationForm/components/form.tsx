@@ -24,6 +24,9 @@ import { useNavigate } from 'react-router-dom'
 import { route } from '@/constants/routing'
 import { basicInformationSchema, defaultBasicInfoSchema } from '../schema'
 import type { BasicInfoFormValues } from '../@types'
+import { positionOptions } from '@/constants/position'
+import { industryOptions } from '@/constants/industry'
+import { employeeCountOption } from '@/constants/employeeCount'
 
 const LeadInfoForm: FC = () => {
   const navigate = useNavigate()
@@ -96,11 +99,13 @@ const LeadInfoForm: FC = () => {
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <SelectItem value="เจ้าของบริษัท">เจ้าของบริษัท</SelectItem>
-                    <SelectItem value="ผู้บริหาร">ผู้บริหาร</SelectItem>
-                    <SelectItem value="ฝ่ายขาย">ฝ่ายขาย</SelectItem>
-                    <SelectItem value="ฝ่ายกลยุทธ์">ฝ่ายกลยุทธ์</SelectItem>
-                    <SelectItem value="อื่นๆ">อื่น ๆ</SelectItem>
+                    {positionOptions.map((option) => {
+                      return (
+                        <SelectItem value={option.value} key={option.value}>
+                          {option.label}
+                        </SelectItem>
+                      )
+                    })}
                   </SelectContent>
                 </Select>
                 <FormMessage />
@@ -126,11 +131,13 @@ const LeadInfoForm: FC = () => {
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <SelectItem value="1-10">1-10</SelectItem>
-                    <SelectItem value="11-50">11-50</SelectItem>
-                    <SelectItem value="51-100">51-100</SelectItem>
-                    <SelectItem value="101-500">101-500</SelectItem>
-                    <SelectItem value="500+">500+</SelectItem>
+                    {employeeCountOption.map((option) => {
+                      return (
+                        <SelectItem value={option.value} key={option.value}>
+                          {option.label}
+                        </SelectItem>
+                      )
+                    })}
                   </SelectContent>
                 </Select>
                 <FormMessage />
@@ -156,14 +163,13 @@ const LeadInfoForm: FC = () => {
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <SelectItem value="อาหารและเครื่องดื่ม">
-                      อาหารและเครื่องดื่ม
-                    </SelectItem>
-                    <SelectItem value="อิเล็กทรอนิกส์">
-                      อิเล็กทรอนิกส์
-                    </SelectItem>
-                    <SelectItem value="เครื่องจักร">เครื่องจักร</SelectItem>
-                    <SelectItem value="อื่นๆ">อื่น ๆ</SelectItem>
+                    {industryOptions.map((option) => {
+                      return (
+                        <SelectItem value={option.value} key={option.value}>
+                          {option.value}
+                        </SelectItem>
+                      )
+                    })}
                   </SelectContent>
                 </Select>
                 <FormMessage />

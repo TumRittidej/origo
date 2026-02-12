@@ -7,7 +7,7 @@ import { route } from './constants/routing'
 import QuizPage from './modules/quiz'
 import ResultPage from './modules/result'
 import AboutUsPage from './modules/aboutUs'
-import ContactPage from './modules/contactPage'
+import ContactPage from './modules/contact'
 
 function App() {
   return (

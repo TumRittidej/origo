@@ -37,6 +37,9 @@ import { Checkbox } from '@/components/ui/checkbox'
 import ThankYouSection from '@/components/thankYouSection'
 import { timeOptions } from '@/constants/time'
 import { formatDate } from '@/utils/formatDate'
+import { positionOptions } from '@/constants/position'
+import { industryOptions } from '@/constants/industry'
+import { employeeCountOption } from '@/constants/employeeCount'
 
 const ContactPage: FC = () => {
   const [isSubmitSuccess, setIsSubmitSuccess] = useState<boolean>(false)
@@ -195,18 +198,16 @@ const ContactPage: FC = () => {
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="เจ้าของบริษัท">
-                            เจ้าของบริษัท
-                          </SelectItem>
-                          <SelectItem value="ผู้บริหาร">ผู้บริหาร</SelectItem>
-                          <SelectItem value="ฝ่ายขาย">ฝ่ายขาย</SelectItem>
-                          <SelectItem value="ฝ่ายกลยุทธ์">
-                            ฝ่ายกลยุทธ์
-                          </SelectItem>
-                          <SelectItem value="ฝ่ายส่งออก">ฝ่ายส่งออก</SelectItem>
-                          <SelectItem value="ตำแหน่งอื่น ๆ">
-                            ตำแหน่งอื่น ๆ
-                          </SelectItem>
+                          {positionOptions.map((option) => {
+                            return (
+                              <SelectItem
+                                value={option.value}
+                                key={option.value}
+                              >
+                                {option.label}
+                              </SelectItem>
+                            )
+                          })}
                         </SelectContent>
                       </Select>
                       <FormMessage />
@@ -233,11 +234,16 @@ const ContactPage: FC = () => {
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="1-10">1-10</SelectItem>
-                          <SelectItem value="11-50">11-50</SelectItem>
-                          <SelectItem value="51-100">51-100</SelectItem>
-                          <SelectItem value="101-500">101-500</SelectItem>
-                          <SelectItem value="500+">500+</SelectItem>
+                          {employeeCountOption.map((option) => {
+                            return (
+                              <SelectItem
+                                value={option.value}
+                                key={option.value}
+                              >
+                                {option.label}
+                              </SelectItem>
+                            )
+                          })}
                         </SelectContent>
                       </Select>
                       <FormMessage />
@@ -264,16 +270,16 @@ const ContactPage: FC = () => {
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="อาหารและเครื่องดื่ม">
-                            อาหารและเครื่องดื่ม
-                          </SelectItem>
-                          <SelectItem value="อิเล็กทรอนิกส์">
-                            อิเล็กทรอนิกส์
-                          </SelectItem>
-                          <SelectItem value="เครื่องจักร">
-                            เครื่องจักร
-                          </SelectItem>
-                          <SelectItem value="อื่นๆ">อื่น ๆ</SelectItem>
+                          {industryOptions.map((option) => {
+                            return (
+                              <SelectItem
+                                value={option.value}
+                                key={option.value}
+                              >
+                                {option.value}
+                              </SelectItem>
+                            )
+                          })}
                         </SelectContent>
                       </Select>
                       <FormMessage />
