@@ -22,7 +22,7 @@ const BannerSection = () => {
               </span>
             </div>
             <div
-              data-aos="slide-left"
+              data-aos="fade-left"
               data-aos-delay="800"
               data-aos-duration="1200"
             >
