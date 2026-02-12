@@ -9,7 +9,7 @@ const ReserveSection: FC = () => {
   return (
     <section id="reserve-section" className="py-14 md:py-20">
       <Container>
-        <div className="text-center bg-primary py-12 rounded-4xl">
+        <div className="text-center bg-primary py-12 rounded-4xl border border-white/5 shadow-white/10 inset-shadow-sm shadow-[0px_0px_10px]">
           <div className="text-white text-3xl lg:text-5xl font-semibold">
             จองเวลาเพื่อคุยกับเรา
           </div>
@@ -20,7 +20,7 @@ const ReserveSection: FC = () => {
             className="cursor-pointer text-xl md:text-[28px] p-6 md:px-10 md:py-8 mt-6"
             onClick={() => navigate(route.contact())}
           >
-            จองเวลา
+            <div className="z-10">จองเวลา</div>
           </Button>
           <div className="text-white/60 mt-4">(จำกัด 5 บริษัทต่อเดือน)</div>
         </div>

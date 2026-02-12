@@ -109,7 +109,7 @@ const ReviewsCarousel: FC = () => {
                 key={i}
                 className="pl-4 sm:basis-1/2 md:basis-1/3 lg:basis-1/4"
               >
-                <Card className="h-full bg-primary border-white/5 hover:border hover:border-secondary-color hover:shadow-secondary-color/10 hover:shadow-[0_0_50px] duration-500">
+                <Card className="h-full bg-primary border-white/5 hover:border hover:border-secondary-color/40 hover:shadow-secondary-color/10 hover:shadow-[0_0_30px] duration-500">
                   <CardContent className="p-6 flex flex-col items-center text-center min-h-95">
                     <div className="h-20 w-20 rounded-full border border-muted-foreground/50 flex items-center justify-center text-xl text-white font-semibold">
                       {r.initials}

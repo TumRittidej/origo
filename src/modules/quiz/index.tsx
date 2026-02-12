@@ -8,13 +8,13 @@ import { Progress } from '@/components/ui/progress'
 import { Form, FormField, FormItem, FormLabel } from '@/components/ui/form'
 import { cn } from '@/lib/utils'
 import { Textarea } from '@/components/ui/textarea'
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
 import { descriptionByStep, quizQuestions } from '@/constants/quiz'
 import { defaultQuizSchema, quizSchema } from './schema'
 import type { QuizFormValues } from './@types'
 import { useNavigate } from 'react-router-dom'
 import { route } from '@/constants/routing'
 import Container from '@/components/container'
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 
 const QuizPage: FC = () => {
   const navigate = useNavigate()
@@ -64,7 +64,7 @@ const QuizPage: FC = () => {
             key={current.id}
             className="animate-fade-in-up flex items-center px-8 justify-center flex-col h-screen"
           >
-            <div className="mb-4 w-30 md:ml-auto">
+            <div className="mb-10 w-20 mx-auto">
               <img src={FullLogoWhite} />
             </div>
             <div className="relative flex bg-primary w-full flex-col gap-6 rounded-3xl border border-secondary-color/20 p-10 shadow-[0_0_40px_rgba(255,179,71,0.15)] hover:shadow-[0_0_60px_rgba(255,179,71,0.25)] transition-all duration-500">
@@ -74,15 +74,15 @@ const QuizPage: FC = () => {
             </div>
             <div className="flex justify-center pt-8">
               <Button
-                variant="default"
+                variant="outline"
                 size="icon"
                 onClick={() => {
                   setShowInterstitial(false)
                   setStep((s) => s + 1)
                 }}
-                className="rounded-full p-7 animate-scale-pop cursor-pointer"
+                className="rounded-full p-8 animate-scale-pop cursor-pointer bg-secondary-color text-black/90"
               >
-                <MdKeyboardArrowRight size={36} />
+                <IoIosArrowForward size={28} />
               </Button>
             </div>
           </div>
@@ -91,7 +91,7 @@ const QuizPage: FC = () => {
             <Form {...form} key={current.id}>
               <form onSubmit={form.handleSubmit(onSubmit)}>
                 <div key={current.id} className="animate-fade-in-up">
-                  <div className="mb-4 w-30 mx-auto">
+                  <div className="mb-10 w-20 mx-auto">
                     <img src={FullLogoWhite} />
                   </div>
                   <FormField
@@ -162,9 +162,9 @@ const QuizPage: FC = () => {
                         size="icon"
                         variant="outline"
                         onClick={goBack}
-                        className="rounded-full p-6 cursor-pointer text-white/60 border-white/20"
+                        className="rounded-full p-6 cursor-pointer text-white/70 border-white/20 hover:scale-[1.1] duration-500 shadow-xs hover:border-secondary-color/50"
                       >
-                        <MdKeyboardArrowLeft size={28} />
+                        <IoIosArrowBack size={20} />
                       </Button>
                     )}
 
@@ -173,7 +173,7 @@ const QuizPage: FC = () => {
                         type="submit"
                         className="p-6 text-lg cursor-pointer"
                       >
-                        ดูผลลัพธ์
+                        <div className="z-10">ดูผลลัพธ์</div>
                       </Button>
                     )}
                   </div>

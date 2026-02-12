@@ -48,8 +48,8 @@ const AreYouReadySection: FC = () => {
               className="cursor-pointer text-xl md:text-[28px] p-6 md:px-10 md:py-8 mt-8 group"
               onClick={() => navigate(route.basicInformationForm())}
             >
-              เริ่มประเมิน (ฟรี){' '}
-              <div className="text-white bg-black rounded-full p-1 md:p-2 text-[18px] md:text-[20px] group-hover:rotate-45 duration-300">
+              <div className="z-10">เริ่มประเมิน (ฟรี) </div>
+              <div className="text-white z-10 bg-black rounded-full p-1 md:p-2 text-[18px] md:text-[20px] group-hover:rotate-45 duration-300">
                 <FaArrowRight />
               </div>
             </Button>

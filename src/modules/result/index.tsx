@@ -193,8 +193,8 @@ const ResultPage: FC = () => {
                   )}
                 />
 
-                <Button type="submit" className="p-6 text-lg">
-                  ยืนยันเวลานัดหมาย
+                <Button type="submit" className="p-6 text-lg cursor-pointer">
+                  <div className="z-10">ยืนยันเวลานัดหมาย</div>
                 </Button>
               </form>
             </Form>

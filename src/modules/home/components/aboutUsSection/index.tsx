@@ -32,7 +32,7 @@ const AboutUsSection: FC = () => {
               className="cursor-pointer text-xl md:text-[28px] p-6 md:px-10 md:py-8 mt-6"
               onClick={() => navigate(route.aboutUs())}
             >
-              ทำความรู้จัก ORIGO
+              <div className="z-10">ทำความรู้จัก ORIGO</div>
             </Button>
           </div>
         </div>

@@ -17,18 +17,18 @@ const BannerSection = () => {
             <span
               className="my-2 md:my-5 block w-full font-semibold text-secondary-color text-6xl md:text-7xl lg:text-8xl"
               data-aos="fade-up"
-              data-aos-delay="200"
+              data-aos-delay="100"
             >
               "ทำงานหนัก"
             </span>
-            <div data-aos="fade-up" data-aos-delay="300">
+            <div data-aos="slide-left" data-aos-delay="800">
               แต่ไม่แน่ใจว่ามาถูกทาง
             </div>
           </div>
           <p
             className="pt-8 text-lg lg:text-2xl text-center md:text-right text-white/80"
             data-aos="fade-up"
-            data-aos-delay="400"
+            data-aos-delay="1500"
           >
             ยอดขายต่างประเทศยังไม่โตแม้ลงทุนเพิ่ม
             <br />
@@ -36,8 +36,8 @@ const BannerSection = () => {
             <span className="relative inline-block">
               ชัดเจนน้อยลง
               <span
-                data-aos="slide-right"
-                data-aos-delay="300"
+                data-aos="zoom-out"
+                data-aos-delay="2000"
                 className="absolute left-0 -bottom-1 h-0.5 w-full bg-secondary-color"
               />
             </span>

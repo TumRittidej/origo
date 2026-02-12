@@ -27,7 +27,7 @@ const ThankYouSection: FC<ThankYouSectionPropsType> = ({ children }) => {
         className="p-6 text-lg mt-6 cursor-pointer"
         onClick={() => navigate(route.home())}
       >
-        กลับหน้าสู่หน้าแรก
+        <div className="z-10">กลับหน้าสู่หน้าแรก</div>
       </Button>
     </div>
   )

@@ -207,8 +207,8 @@ const LeadInfoForm: FC = () => {
           />
 
           <div className="pt-4 text-center md:text-right">
-            <Button type="submit" className="p-6 text-lg">
-              เริ่มทำแบบประเมิน
+            <Button type="submit" className="p-6 text-lg cursor-pointer">
+              <div className="z-10">เริ่มทำแบบประเมิน</div>
             </Button>
           </div>
         </form>
