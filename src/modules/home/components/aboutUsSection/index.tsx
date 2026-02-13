@@ -5,11 +5,15 @@ import { type FC } from 'react'
 import { useNavigate } from 'react-router-dom'
 import aboutMeImage from '@/assets/about_me_image.png'
 
-const AboutUsSection: FC = () => {
+type AboutUsSectionPropsType = {
+  id: string
+}
+
+const AboutUsSection: FC<AboutUsSectionPropsType> = ({ id }) => {
   const navigate = useNavigate()
 
   return (
-    <section id="about_us_section" className="py-14 md:py-20 bg-primary">
+    <section id={id} className="py-14 md:py-20 bg-primary">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div className="overflow-hidden rounded-2xl">
@@ -30,7 +34,7 @@ const AboutUsSection: FC = () => {
             </div>
             <Button
               className="cursor-pointer text-xl md:text-[28px] p-6 md:px-10 md:py-8 mt-6"
-              onClick={() => navigate(route.aboutUs())}
+              onClick={() => navigate(route.aboutUs(), { relative: 'route' })}
             >
               <div className="z-10">ทำความรู้จัก ORIGO</div>
             </Button>

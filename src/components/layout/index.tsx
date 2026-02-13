@@ -1,9 +1,12 @@
 import type { FC } from 'react'
 import Header from './header'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 import Footer from './footer'
+import { route } from '@/constants/routing'
 
 const Layout: FC = () => {
+  const location = useLocation()
+
   return (
     <>
       <Header />
@@ -12,7 +15,7 @@ const Layout: FC = () => {
         <Outlet />
       </div>
 
-      <Footer />
+      {location.pathname === route.home() && <Footer />}
     </>
   )
 }

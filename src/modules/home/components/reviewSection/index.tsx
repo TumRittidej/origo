@@ -84,10 +84,14 @@ const reviews = [
   }
 ]
 
-const ReviewsCarousel: FC = () => {
+type ReviewSectionPropsType = {
+  id: string
+}
+
+const ReviewsCarousel: FC<ReviewSectionPropsType> = ({ id }) => {
   return (
-    <section className="py-16 sm:py-20 bg-background">
-      <Container className="px-20!">
+    <section id={id} className="py-16 sm:py-20 bg-background">
+      <Container className="px-16!">
         <div className="text-center mb-10">
           <h2 className="text-white items-center flex flex-col text-3xl sm:text-4xl md:text-5xl font-semibold">
             <span className="text-white/50">
@@ -107,9 +111,9 @@ const ReviewsCarousel: FC = () => {
             {reviews.map((r, i) => (
               <CarouselItem
                 key={i}
-                className="pl-4 sm:basis-1/2 md:basis-1/3 lg:basis-1/4"
+                className="px-4 py-6 sm:basis-1/2 md:basis-1/3 lg:basis-1/4"
               >
-                <Card className="h-full bg-primary border-white/5 hover:border hover:border-secondary-color/40 hover:shadow-secondary-color/10 hover:shadow-[0_0_30px] duration-500">
+                <Card className="h-full bg-primary border-white/5 hover:border hover:border-secondary-color/40 hover:shadow-secondary-color/10 hover:shadow-[0_0_30px] duration-500 transform hover:-translate-y-1">
                   <CardContent className="p-6 flex flex-col items-center text-center min-h-95">
                     <div className="h-20 w-20 rounded-full border border-muted-foreground/50 flex items-center justify-center text-xl text-white font-semibold">
                       {r.initials}

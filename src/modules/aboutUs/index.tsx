@@ -16,7 +16,7 @@ const AboutUsPage: FC = () => {
         <img
           src={AboutUsImage}
           alt="Origo Office"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover object-center"
         />
 
         <div className="absolute inset-0 bg-background/70" />
@@ -74,7 +74,7 @@ const AboutUsPage: FC = () => {
             <AnimatedCounter
               end={92}
               suffix="%"
-              className="text-white font-semibold text-5xl lg:text-7xl my-4"
+              className="text-white font-semibold text-3xl md:text-5xl lg:text-7xl my-4"
             />
             <div>เมื่อการตัดสินใจถูกจัดการด้วยระบบและข้อมูลที่ถูกต้อง</div>
           </div>
@@ -83,7 +83,7 @@ const AboutUsPage: FC = () => {
             <AnimatedCounter
               end={8}
               suffix="%"
-              className="text-secondary-color font-semibold text-5xl lg:text-7xl my-4"
+              className="text-secondary-color font-semibold text-3xl md:text-5xl lg:text-7xl my-4"
             />
             <div>
               ที่สำคัญที่สุด ลูกค้า ความสัมพันธ์ และ

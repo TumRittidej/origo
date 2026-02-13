@@ -1,9 +1,12 @@
-const BannerSection = () => {
+import type { FC } from 'react'
+
+type BannerSectionPropsType = {
+  id: string
+}
+
+const BannerSection: FC<BannerSectionPropsType> = ({ id }) => {
   return (
-    <section
-      id="banner_home_section"
-      className="relative min-h-screen overflow-hidden bg-black"
-    >
+    <section id={id} className="relative min-h-screen overflow-hidden bg-black">
       <div className="absolute inset-0">
         <div className="banner-background absolute inset-0"></div>
         <div className="ssss absolute inset-0"></div>

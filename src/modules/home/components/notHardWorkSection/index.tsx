@@ -1,29 +1,13 @@
 import Container from '@/components/container'
 import { type FC } from 'react'
 
-const NotHardWorkSection: FC = () => {
-  // const ref = useRef<HTMLDivElement>(null)
-  // const [visible, setVisible] = useState(false)
+type NotHardWorkSectionPropsType = {
+  id: string
+}
 
-  // useEffect(() => {
-  //   if (!ref.current) return
-
-  //   const observer = new IntersectionObserver(
-  //     ([entry]) => {
-  //       if (entry.isIntersecting) {
-  //         setVisible(true)
-  //         observer.disconnect() // เล่นครั้งเดียว
-  //       }
-  //     },
-  //     { threshold: 0.4 }
-  //   )
-
-  //   observer.observe(ref.current)
-
-  //   return () => observer.disconnect()
-  // }, [])
+const NotHardWorkSection: FC<NotHardWorkSectionPropsType> = ({ id }) => {
   return (
-    <section className="py-14 md:py-20">
+    <section id={id} className="py-14 md:py-20">
       <Container>
         <div className="text-center">
           <div className="text-lg md:text-2xl text-white/70 pb-2">

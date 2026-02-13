@@ -2,9 +2,13 @@ import AnimatedCounter from '@/components/animatedCount'
 import Container from '@/components/container'
 import type { FC } from 'react'
 
-const StaticSection: FC = () => {
+type StaticSectionPropsType = {
+  id: string
+}
+
+const StaticSection: FC<StaticSectionPropsType> = ({ id }) => {
   return (
-    <section id="static_section" className="py-14 md:py-20 bg-primary">
+    <section id={id} className="py-14 md:py-20 bg-primary">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-3 justify-items-center gap-8 md:gap-12">
           <div className="md:text-left text-center">

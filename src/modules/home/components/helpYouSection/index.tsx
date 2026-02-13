@@ -4,9 +4,13 @@ import helpYouImage from '@/assets/help_you_image.png'
 import Container from '@/components/container'
 import { TbEyeCheck, TbTargetArrow } from 'react-icons/tb'
 
-const HelpYouSection: FC = () => {
+type HelpYouSectionPropsType = {
+  id: string
+}
+
+const HelpYouSection: FC<HelpYouSectionPropsType> = ({ id }) => {
   return (
-    <section id="help_you_section" className="py-14 md:py-20">
+    <section id={id} className="py-14 md:py-20">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div>

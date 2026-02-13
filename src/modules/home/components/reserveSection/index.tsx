@@ -4,10 +4,14 @@ import { route } from '@/constants/routing'
 import type { FC } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const ReserveSection: FC = () => {
+type ReserveSectionPropsType = {
+  id: string
+}
+
+const ReserveSection: FC<ReserveSectionPropsType> = ({ id }) => {
   const navigate = useNavigate()
   return (
-    <section id="reserve-section" className="py-14 md:py-20">
+    <section id={id} className="py-14 md:py-20">
       <Container>
         <div className="text-center bg-primary py-12 rounded-4xl border border-white/5 shadow-white/10 inset-shadow-sm shadow-[0px_0px_10px]">
           <div className="text-white text-3xl lg:text-5xl font-semibold">

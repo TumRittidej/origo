@@ -1,4 +1,5 @@
 import { useState, useEffect, type FC, type MouseEvent } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { X } from 'lucide-react'
 import LogoMenu from '@/assets/logo_menu.png'
 import { route } from '@/constants/routing'
@@ -15,6 +16,9 @@ const Header: FC = () => {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
+  const navigate = useNavigate()
+  const location = useLocation()
+
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 10)
@@ -24,13 +28,24 @@ const Header: FC = () => {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  const scrollToSection = (hash: string) => {
+    const el = document.querySelector(hash)
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
+
   const handleScroll = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
-    const target = document.querySelector(href)
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }
     setOpen(false)
+
+    if (location.pathname !== route.home()) {
+      // ถ้าไม่ได้อยู่หน้า Home → กลับไปก่อน
+      navigate(route.home(), { state: { scrollTo: href } })
+    } else {
+      // ถ้าอยู่หน้า Home แล้ว → scroll เลย
+      scrollToSection(href)
+    }
   }
 
   return (
@@ -64,7 +79,6 @@ const Header: FC = () => {
         <button
           onClick={() => setOpen(!open)}
           className="md:hidden text-white cursor-pointer"
-          aria-label="Toggle Menu"
         >
           {open ? <X size={28} /> : <CiMenuFries size={28} />}
         </button>

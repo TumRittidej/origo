@@ -7,11 +7,15 @@ import { Button } from '@/components/ui/button'
 import { useNavigate } from 'react-router-dom'
 import { route } from '@/constants/routing'
 
-const AreYouReadySection: FC = () => {
+type AreYouReadySectionPropsType = {
+  id: string
+}
+
+const AreYouReadySection: FC<AreYouReadySectionPropsType> = ({ id }) => {
   const navigate = useNavigate()
 
   return (
-    <section id="are_you_ready_section" className="py-14 md:py-20">
+    <section id={id} className="py-14 md:py-20">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-12 items-center justify-between">
           <div className="text-center md:text-left">
