@@ -107,7 +107,7 @@ const ReviewsCarousel: FC<ReviewSectionPropsType> = ({ id }) => {
           </p>
         </div>
         <Carousel>
-          <CarouselContent>
+          <CarouselContent className="px-4">
             {reviews.map((review, i) => (
               <CarouselItem
                 key={i}
@@ -115,11 +115,14 @@ const ReviewsCarousel: FC<ReviewSectionPropsType> = ({ id }) => {
               >
                 <Card className="h-full bg-primary border-white/5 hover:border hover:border-secondary-color/20 hover:shadow-secondary-color/20 hover:shadow-[0px_0px_20px] duration-500 transform hover:-translate-y-1">
                   <CardContent className="p-6 flex flex-col items-center text-center min-h-95">
-                    <div className="h-20 w-20 rounded-full border border-muted-foreground/50 flex items-center justify-center text-xl text-white font-semibold">
+                    <div className="h-24 w-24 rounded-full border border-muted-foreground/50 flex items-center justify-center text-2xl text-white font-semibold">
                       {review.sortName}
                     </div>
 
-                    <p className="mt-4 font-medium text-white">{review.name}</p>
+                    <p className="mt-12 font-medium text-white">
+                      {review.name}
+                    </p>
+
                     <p className="text-sm text-white/60">{review.role}</p>
 
                     <p className="mt-4 text-sm text-white/60 leading-relaxed">
