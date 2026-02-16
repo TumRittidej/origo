@@ -54,7 +54,7 @@ const ResultPage: FC = () => {
         <div className="flex h-24 w-24 items-center justify-center rounded-full border-2 border-white/20 text-3xl p-2 mb-4 font-semibold text-secondary-color">
           42%
         </div>
-        <h2 className="text-white mt-2 font-semibold md:text-lg">
+        <h2 className="text-white mt-2 font-semibold text-lg">
           เริ่มเห็นทิศทาง แต่ยังไม่ชัดเจน
         </h2>
         <p className="text-white/60 text-center text-sm md:text-base max-w-100 pt-2">
@@ -64,21 +64,21 @@ const ResultPage: FC = () => {
       </div>
       <div className="bg-primary p-6 mt-4 rounded-2xl">
         <div className="mb-4">
-          <div className="flex justify-between text-white text-sm md:text-base mb-1">
+          <div className="flex justify-between text-white text-base mb-1">
             <span>ทิศทางตลาด</span>
             <span>88%</span>
           </div>
           <Progress value={88} />
         </div>
         <div className="mb-4">
-          <div className="flex justify-between text-white text-sm md:text-base mb-1">
+          <div className="flex justify-between text-white text-base mb-1">
             <span>ตำแหน่งทางตลาด</span>
             <span>87%</span>
           </div>
           <Progress value={87} />
         </div>
         <div>
-          <div className="flex justify-between text-white text-sm md:text-base mb-1">
+          <div className="flex justify-between text-white text-base mb-1">
             <span>ข้อมูลในการตัดสินใจ</span>
             <span>92%</span>
           </div>

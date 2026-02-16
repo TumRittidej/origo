@@ -51,7 +51,7 @@ const AboutUsPage: FC = () => {
             เข้าถึงลูกค้ากลุ่มเป้าหมายในตลาดโลกได้เร็วขึ้นและเติบโตได้อย่างยั่งยืน
           </p>
 
-          <div className="border border-white/20 py-6 px-10 rounded-3xl bg-[#1a1b1f]">
+          <div className="border border-white/20 py-6 px-10 rounded-3xl bg-primary">
             ประสบการณ์ที่ทำให้เราเข้าใจว่า{' '}
             <span className="text-secondary-color">“ตลาดโลก”</span> ไม่ได้ไกล
             เครื่องมือที่ดีช่วยให้เรามองหาโอกาสได้เร็วขึ้น
@@ -69,7 +69,7 @@ const AboutUsPage: FC = () => {
           สิ่งที่เราเชื่อ
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-[0.8fr_1.2fr] gap-12 pb-12">
-          <div className="text-white/80 border rounded-3xl p-8 hover:scale-[1.02] duration-500 border-white/20 bg-[#1a1b1f] text-center">
+          <div className="text-white/80 border rounded-3xl p-8 hover:scale-[1.02] duration-500 border-white/20 bg-primary text-center">
             <div>ธุรกิจส่วนใหญ่มีโอกาสในการเติบโต</div>
             <AnimatedCounter
               end={92}
@@ -78,7 +78,7 @@ const AboutUsPage: FC = () => {
             />
             <div>เมื่อการตัดสินใจถูกจัดการด้วยระบบและข้อมูลที่ถูกต้อง</div>
           </div>
-          <div className="text-white/80 border rounded-3xl p-8 hover:scale-[1.02] duration-500 border-secondary-color/20 shadow-secondary-color/20 shadow-[0px_0px_20px] bg-[#1a1b1f] text-center">
+          <div className="text-white/80 border rounded-3xl p-8 hover:scale-[1.02] duration-500 border-secondary-color/20 shadow-secondary-color/20 shadow-[0px_0px_20px] bg-primary text-center">
             <div>เพื่อให้ผู้บริหารมีเวลาโฟกัสใน</div>
             <AnimatedCounter
               end={8}

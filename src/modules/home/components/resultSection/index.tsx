@@ -126,7 +126,7 @@ const ResultSection: FC<ResultSectionPropsType> = ({ id }) => {
           </div>
 
           <div className="grid gap-4 grid-cols-1 md:grid-cols-2 md:gap-6 md:mt-8">
-            <div className="card-lift rounded-2xl border border-white/20 p-4 md:px-8 md:py-10 text-center hover:transform hover:-translate-y-2 duration-500 hover:shadow-[0_0_10px] hover:shadow-secondary-color group">
+            <div className="card-lift rounded-2xl border border-white/20 p-4 md:px-8 md:py-10 text-center hover:transform hover:-translate-y-2 duration-500 hover:border-secondary-color/20 hover:shadow-secondary-color/20 hover:shadow-[0px_0px_20px]">
               <p className="text-lg text-white/80 sm:text-2xl md:text-3xl lg:text-4xl">
                 ฐานลูกค้าเติบโต
               </p>
@@ -142,7 +142,7 @@ const ResultSection: FC<ResultSectionPropsType> = ({ id }) => {
               </div>
             </div>
 
-            <div className="card-lift rounded-2xl border border-white/20 p-4 md:px-8 md:py-10 text-center  hover:transform hover:-translate-y-2 duration-500 hover:shadow-[0_0_10px] hover:shadow-secondary-color">
+            <div className="card-lift rounded-2xl border border-white/20 p-4 md:px-8 md:py-10 text-center  hover:transform hover:-translate-y-2 duration-500 hover:border-secondary-color/20 hover:shadow-secondary-color/20 hover:shadow-[0px_0px_20px]">
               <p className="text-lg text-white/80 sm:text-2xl md:text-3xl lg:text-4xl">
                 ต้นทุนหาลูกค้าลดลง
               </p>

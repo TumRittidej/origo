@@ -28,7 +28,7 @@ const HelpYouSection: FC<HelpYouSectionPropsType> = ({ id }) => {
             </div>
             <div className="pt-4">
               <div className="flex items-center gap-2 pb-4">
-                <div className="text-secondary-color-hover/90 text-[36px] lg:text-[46px]">
+                <div className="text-secondary-color text-[36px] lg:text-[46px]">
                   <TbEyeCheck />
                 </div>
                 <div className="text-white text-lg md:text-xl lg:text-3xl">
@@ -36,7 +36,7 @@ const HelpYouSection: FC<HelpYouSectionPropsType> = ({ id }) => {
                 </div>
               </div>
               <div className="flex items-center gap-2 md:gap-4 pb-4">
-                <div className="text-secondary-color-hover/90 text-[36px] lg:text-[46px]">
+                <div className="text-secondary-color text-[36px] lg:text-[46px]">
                   <TbTargetArrow />
                 </div>
                 <div className="text-white text-lg md:text-xl lg:text-3xl">
@@ -47,7 +47,7 @@ const HelpYouSection: FC<HelpYouSectionPropsType> = ({ id }) => {
                 </div>
               </div>
               <div className="flex items-center gap-2 md:gap-4 pb-4">
-                <div className="text-secondary-color-hover/90 text-[36px] lg:text-[46px]">
+                <div className="text-secondary-color text-[36px] lg:text-[46px]">
                   <FiCheckCircle />
                 </div>
                 <div className="text-white text-lg md:text-xl lg:text-3xl">

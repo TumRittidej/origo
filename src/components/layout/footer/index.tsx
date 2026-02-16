@@ -1,6 +1,7 @@
 import Divider from '@/components/divider'
 import FullLogoWhite from '@/assets/full_logo_white.png'
 import { type FC } from 'react'
+import { HiPhone } from 'react-icons/hi2'
 
 type FooterLink = {
   href: string
@@ -39,9 +40,15 @@ export const FooterBrand: FC = () => {
               <img src={FullLogoWhite} />
             </div>
             <div className="text-white/60">บริษัท โอริโก้ คอนซัลติ้ง จำกัด</div>
-            <span className="text-sm flex gap-2 items-center justify-center">
-              098-765-4321
-            </span>
+            <a
+              href="tel:+66800693160"
+              className="text-sm flex gap-2 justify-center pt-2 group"
+            >
+              <div className="group-hover:transform group-hover:-translate-y-1 group-hover:text-secondary-color duration-500">
+                <HiPhone size={18} />
+              </div>
+              080-069-3160
+            </a>
             <p className="mt-3 text-sm text-white/60">
               Market Intelligence for International Trade
             </p>
