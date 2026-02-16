@@ -47,14 +47,14 @@ const ResultPage: FC = () => {
 
   return (
     <div className="mx-auto flex min-h-screen w-full max-w-3xl flex-col justify-center px-5 py-10">
-      <p className="text-center text-white pb-4 text-2xl md:text-4xl font-semibold">
+      <p className="text-center text-white pb-12 text-2xl md:text-4xl font-semibold">
         สถานะ Market Signal ของคุณ
       </p>
       <div className="flex flex-col items-center pb-4">
-        <div className="flex h-24 w-24 items-center justify-center rounded-full border-2 border-white/20 text-3xl p-2 mb-4 font-semibold text-secondary-color">
+        <div className="flex h-36 w-36 md:h-48 md:w-48 items-center justify-center rounded-full border-2 border-white/20 text-5xl md:text-6xl p-2 mb-4 font-semibold text-secondary-color">
           42%
         </div>
-        <h2 className="text-white mt-2 font-semibold text-lg">
+        <h2 className="text-white mt-8 font-semibold text-xl">
           เริ่มเห็นทิศทาง แต่ยังไม่ชัดเจน
         </h2>
         <p className="text-white/60 text-center text-sm md:text-base max-w-100 pt-2">
@@ -62,23 +62,23 @@ const ResultPage: FC = () => {
           ระบบการตัดสินใจยังขึ้นอยู่กับตัวบุคคลหรือสถานการณ์เฉพาะหน้า
         </p>
       </div>
-      <div className="bg-primary p-6 mt-4 rounded-2xl">
-        <div className="mb-4">
-          <div className="flex justify-between text-white text-base mb-1">
+      <div className="bg-primary p-6 md:p-8 mt-8 rounded-2xl">
+        <div className="mb-6">
+          <div className="flex justify-between text-white/80 text-lg md:text-xl mb-1">
             <span>ทิศทางตลาด</span>
             <span>88%</span>
           </div>
           <Progress value={88} />
         </div>
-        <div className="mb-4">
-          <div className="flex justify-between text-white text-base mb-1">
+        <div className="mb-6">
+          <div className="flex justify-between text-white/80 text-lg md:text-xl mb-1">
             <span>ตำแหน่งทางตลาด</span>
             <span>87%</span>
           </div>
           <Progress value={87} />
         </div>
         <div>
-          <div className="flex justify-between text-white text-base mb-1">
+          <div className="flex justify-between text-white/80 text-lg md:text-xl mb-1">
             <span>ข้อมูลในการตัดสินใจ</span>
             <span>92%</span>
           </div>

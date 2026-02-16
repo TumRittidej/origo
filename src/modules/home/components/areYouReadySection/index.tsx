@@ -61,25 +61,25 @@ const AreYouReadySection: FC<AreYouReadySectionPropsType> = ({ id }) => {
           <Divider className="md:hidden" />
           <div>
             <div className="relative w-full rounded-3xl p-5 md:p-6 bg-primary border-white/10 border hover:border-secondary-color/20 hover:shadow-secondary-color/20 hover:shadow-[0px_0px_20px] duration-500 transform hover:-translate-y-1">
-              <p className="text-white/70 pb-4 lg:text-lg">
+              <p className="text-white/70 pb-4 text-xl md:text-2xl">
                 สถานะ Market Signal ของคุณ
               </p>
               <div className="flex flex-col items-center pb-4">
-                <div className="flex h-24 w-24 items-center justify-center rounded-full border-2 border-white/20 text-3xl p-2 mb-4 font-semibold text-secondary-color">
+                <div className="flex h-36 w-36 md:h-48 md:w-48 items-center justify-center rounded-full border-2 border-white/20 text-5xl md:text-6xl p-2 mb-4 font-semibold text-secondary-color">
                   89%
                 </div>
-                <p className="text-white mt-2 font-semibold text-lg">
+                <p className="text-white mt-2 font-semibold text-xl">
                   พร้อมเติบโตอย่างมีทิศทาง
                 </p>
               </div>
-              <div className="mb-4">
+              <div className="mb-6">
                 <div className="flex justify-between text-white mb-1">
                   <span>ทิศทางตลาด</span>
                   <span>88%</span>
                 </div>
                 <Progress value={88} />
               </div>
-              <div className="mb-4">
+              <div className="mb-6">
                 <div className="flex justify-between text-white mb-1">
                   <span>ตำแหน่งทางตลาด</span>
                   <span>87%</span>

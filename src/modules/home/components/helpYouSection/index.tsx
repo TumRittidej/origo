@@ -27,15 +27,14 @@ const HelpYouSection: FC<HelpYouSectionPropsType> = ({ id }) => {
               ให้คุณเข้าถึงกลุ่มลูกค้าเป้าหมายได้รวดเร็ว
             </div>
             <div className="pt-4">
-              <div className="flex items-center gap-2 pb-4">
+              <div className="grid grid-cols-[55px_1fr] items-center gap-2 pb-4">
                 <div className="text-secondary-color text-[36px] lg:text-[46px]">
                   <TbEyeCheck />
                 </div>
                 <div className="text-white text-lg md:text-xl lg:text-3xl">
                   มองเห็น <span className="text-white/60">- Market Signal</span>
                 </div>
-              </div>
-              <div className="flex items-center gap-2 md:gap-4 pb-4">
+
                 <div className="text-secondary-color text-[36px] lg:text-[46px]">
                   <TbTargetArrow />
                 </div>
@@ -45,8 +44,7 @@ const HelpYouSection: FC<HelpYouSectionPropsType> = ({ id }) => {
                     - Customer & Market Focus
                   </span>
                 </div>
-              </div>
-              <div className="flex items-center gap-2 md:gap-4 pb-4">
+
                 <div className="text-secondary-color text-[36px] lg:text-[46px]">
                   <FiCheckCircle />
                 </div>
