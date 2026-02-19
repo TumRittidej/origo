@@ -1,34 +1,20 @@
 import Container from '@/components/container'
-import { useEffect, useRef, useState, type FC } from 'react'
+import { type FC } from 'react'
 
 import { TbArrowBigDownFilled, TbArrowBigUpFilled } from 'react-icons/tb'
 import AnimatedCounter from '@/components/animatedCount'
+import { useInView } from 'react-intersection-observer'
 
 type ResultSectionPropsType = {
   id: string
 }
 
 const ResultSection: FC<ResultSectionPropsType> = ({ id }) => {
-  const ref = useRef<HTMLDivElement>(null)
-  const [visible, setVisible] = useState(false)
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.4
+  })
 
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true)
-          observer.disconnect()
-        }
-      },
-      { threshold: 0.4 }
-    )
-
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [])
   return (
     <section id={id} className="py-14 md:py-20">
       <Container>
@@ -89,7 +75,7 @@ const ResultSection: FC<ResultSectionPropsType> = ({ id }) => {
                   fill="none"
                   stroke="url(#lineGlow)"
                   strokeWidth="3.5"
-                  className={`graph-line ${visible ? 'draw' : ''}`}
+                  className={`graph-line ${inView ? 'draw' : ''}`}
                 />
 
                 {/* Labels */}

@@ -6,6 +6,7 @@ import { FaArrowRight, FaCheck } from 'react-icons/fa6'
 import { Button } from '@/components/ui/button'
 import { useNavigate } from 'react-router-dom'
 import { route } from '@/constants/routing'
+import AnimatedCounter from '@/components/animatedCount'
 
 type AreYouReadySectionPropsType = {
   id: string
@@ -66,7 +67,8 @@ const AreYouReadySection: FC<AreYouReadySectionPropsType> = ({ id }) => {
               </p>
               <div className="flex flex-col items-center pb-4">
                 <div className="flex h-36 w-36 md:h-48 md:w-48 items-center justify-center rounded-full border-2 border-white/20 text-5xl md:text-6xl p-2 mb-4 font-semibold text-secondary-color">
-                  89%
+                  {/* 89% */}
+                  <AnimatedCounter end={89} suffix="%" />
                 </div>
                 <p className="text-white mt-2 font-semibold text-xl">
                   พร้อมเติบโตอย่างมีทิศทาง
@@ -75,21 +77,24 @@ const AreYouReadySection: FC<AreYouReadySectionPropsType> = ({ id }) => {
               <div className="mb-6">
                 <div className="flex justify-between text-white mb-1">
                   <span>ทิศทางตลาด</span>
-                  <span>88%</span>
+                  {/* <span>88%</span> */}
+                  <AnimatedCounter end={88} suffix="%" />
                 </div>
                 <Progress value={88} />
               </div>
               <div className="mb-6">
                 <div className="flex justify-between text-white mb-1">
                   <span>ตำแหน่งทางตลาด</span>
-                  <span>87%</span>
+                  {/* <span>87%</span> */}
+                  <AnimatedCounter end={87} suffix="%" />
                 </div>
                 <Progress value={87} />
               </div>
               <div>
                 <div className="flex justify-between text-white mb-1">
                   <span>ข้อมูลในการตัดสินใจ</span>
-                  <span>92%</span>
+                  {/* <span>92%</span> */}
+                  <AnimatedCounter end={92} suffix="%" />
                 </div>
                 <Progress value={92} />
               </div>
