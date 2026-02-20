@@ -1,4 +1,4 @@
-import type { FC } from 'react'
+import { useEffect, useState, type FC } from 'react'
 import Container from '@/components/container'
 import { Progress } from '@/components/ui/progress'
 import Divider from '@/components/divider'
@@ -7,6 +7,10 @@ import { Button } from '@/components/ui/button'
 import { useNavigate } from 'react-router-dom'
 import { route } from '@/constants/routing'
 import AnimatedCounter from '@/components/animatedCount'
+import { buildStyles, CircularProgressbar } from 'react-circular-progressbar'
+import { colors } from '@/constants/colors'
+import CountUp from 'react-countup'
+import { useInView } from 'react-intersection-observer'
 
 type AreYouReadySectionPropsType = {
   id: string
@@ -15,20 +19,41 @@ type AreYouReadySectionPropsType = {
 const AreYouReadySection: FC<AreYouReadySectionPropsType> = ({ id }) => {
   const navigate = useNavigate()
 
+  const [current, setCurrent] = useState(89)
+  const { ref, inView } = useInView({
+    threshold: 0.3,
+    triggerOnce: true
+  })
+
+  useEffect(() => {
+    if (!inView) return
+
+    const stepTime = 100 / 89
+    let count = 0
+
+    const timer = setInterval(() => {
+      count += 1
+      setCurrent(count)
+      if (count >= 89) clearInterval(timer)
+    }, stepTime)
+
+    return () => clearInterval(timer)
+  }, [inView])
+
   return (
     <section id={id} className="py-14 md:py-20">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-12 items-center justify-between">
-          <div className="text-center md:text-left">
-            <h2 className="text-white leading-tight text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
+          <div className="text-center md:text-left" data-aos="fade-right">
+            <h2 className="text-white leading-tight text-6xl md:text-7xl">
               พร้อมแล้วหรือยัง?
             </h2>
-            <div className="font-light mb-8 md:mb-0 mt-2 md:leading-14 text-white/90 text-[20px] md:text-[28px] lg:text-[32px] xl:text-[40px]">
+            <div className="font-light mb-8 md:mb-0 mt-2 md:leading-14 text-white/90 text-3xl md:text-4xl">
               คำถามเพียง <span className="font-semibold">3 นาที</span>
               <div>ที่จะพาคุณออกไปจากจุดเดิม</div>
             </div>
             <Divider className="hidden md:block w-20! h-1!" />
-            <ul className="mt-4 md:mt-8 space-y-3 text-base md:text-lg text-white/75">
+            <ul className="mt-4 md:mt-8 space-y-3 text-xl text-white/75">
               <li className="flex gap-2 items-center group justify-center md:justify-start">
                 <div className="rounded-full p-1 bg-white/15">
                   <FaCheck size={16} color="white" />
@@ -50,7 +75,7 @@ const AreYouReadySection: FC<AreYouReadySectionPropsType> = ({ id }) => {
             </ul>
 
             <Button
-              className="cursor-pointer text-xl md:text-[28px] p-6 md:px-10 md:py-8 mt-8 group"
+              className="cursor-pointer text-xl md:text-3xl p-6 md:px-10 md:py-8 mt-8 group"
               onClick={() => navigate(route.basicInformationForm())}
             >
               <div className="z-10">เริ่มประเมิน (ฟรี) </div>
@@ -66,9 +91,22 @@ const AreYouReadySection: FC<AreYouReadySectionPropsType> = ({ id }) => {
                 สถานะ Market Signal ของคุณ
               </p>
               <div className="flex flex-col items-center pb-4">
-                <div className="flex h-36 w-36 md:h-48 md:w-48 items-center justify-center rounded-full border-2 border-white/20 text-5xl md:text-6xl p-2 mb-4 font-semibold text-secondary-color">
-                  {/* 89% */}
-                  <AnimatedCounter end={89} suffix="%" />
+                <div
+                  ref={ref}
+                  className="flex h-56 w-56 items-center justify-center text-5xl md:text-6xl p-2 mb-4 font-semibold text-secondary-color"
+                >
+                  <CircularProgressbar
+                    value={inView ? 89 : 0}
+                    text={`${current}%`}
+                    styles={buildStyles({
+                      pathColor: colors['secondary-color'],
+                      textColor: '#fff',
+                      trailColor: colors['muted-foreground'],
+                      strokeLinecap: 'round',
+                      textSize: '30px'
+                    })}
+                    strokeWidth={5}
+                  />
                 </div>
                 <p className="text-white mt-2 font-semibold text-xl">
                   พร้อมเติบโตอย่างมีทิศทาง
@@ -77,7 +115,6 @@ const AreYouReadySection: FC<AreYouReadySectionPropsType> = ({ id }) => {
               <div className="mb-6">
                 <div className="flex justify-between text-white mb-1">
                   <span>ทิศทางตลาด</span>
-                  {/* <span>88%</span> */}
                   <AnimatedCounter end={88} suffix="%" />
                 </div>
                 <Progress value={88} />
@@ -85,7 +122,6 @@ const AreYouReadySection: FC<AreYouReadySectionPropsType> = ({ id }) => {
               <div className="mb-6">
                 <div className="flex justify-between text-white mb-1">
                   <span>ตำแหน่งทางตลาด</span>
-                  {/* <span>87%</span> */}
                   <AnimatedCounter end={87} suffix="%" />
                 </div>
                 <Progress value={87} />
@@ -93,14 +129,13 @@ const AreYouReadySection: FC<AreYouReadySectionPropsType> = ({ id }) => {
               <div>
                 <div className="flex justify-between text-white mb-1">
                   <span>ข้อมูลในการตัดสินใจ</span>
-                  {/* <span>92%</span> */}
                   <AnimatedCounter end={92} suffix="%" />
                 </div>
                 <Progress value={92} />
               </div>
               <div className="absolute -top-2 -right-2 md:-top-4 md:-right-4">
-                <div className="rounded-full p-2 bg-lime-700">
-                  <FaCheck size={24} color="white" />
+                <div className="rounded-full p-3 bg-lime-800 text-primary">
+                  <FaCheck size={20} />
                 </div>
               </div>
             </div>

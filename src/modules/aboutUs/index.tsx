@@ -102,7 +102,7 @@ const AboutUsPage: FC = () => {
         </div>
         <Button
           type="submit"
-          className="p-6 text-lg cursor-pointer"
+          className="p-6 text-xl cursor-pointer"
           onClick={() => navigate(route.contact())}
         >
           ติดต่อเรา

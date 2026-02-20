@@ -17,9 +17,11 @@ const StaticSection: FC<StaticSectionPropsType> = ({ id }) => {
               suffix="+"
               className="text-white font-semibold text-5xl lg:text-7xl"
             />
-            <div className="text-white/90 text-xl lg:text-3xl pt-4">ประเทศ</div>
-            <p className="text-white/60 lg:text-lg pt-2">
-              ครอบคลุมวิเคราะห์สัญญาณ <br /> ตลาดจากหลายภูมิภาคทั่วโลก
+            <div className="text-white/90 text-2xl lg:text-4xl pt-4">
+              ประเทศ
+            </div>
+            <p className="text-white/60 text-xl pt-2">
+              ครอบคลุมวิเคราะห์สัญญาณตลาด จากหลายภูมิภาคทั่วโลก
             </p>
           </div>
           <div className="md:text-left text-center">
@@ -28,9 +30,9 @@ const StaticSection: FC<StaticSectionPropsType> = ({ id }) => {
               suffix="+"
               className="text-white font-semibold text-5xl lg:text-7xl"
             />
-            <div className="text-white/90 text-xl lg:text-3xl pt-4">ปี</div>
-            <p className="text-white/60 lg:text-lg pt-2">
-              ประสบการณ์จริงในการทำ <br /> Go-to-Market ระดับสากล
+            <div className="text-white/90 text-2xl lg:text-4xl pt-4">ปี</div>
+            <p className="text-white/60 text-xl pt-2">
+              ประสบการณ์จริงในการทำ Go-to-Market ระดับสากล
             </p>
           </div>
           <div className="md:text-left text-center">
@@ -39,9 +41,11 @@ const StaticSection: FC<StaticSectionPropsType> = ({ id }) => {
               suffix="+"
               className="text-white font-semibold text-5xl lg:text-7xl"
             />
-            <div className="text-white/90 text-xl lg:text-3xl pt-4">ประเทศ</div>
-            <p className="text-white/60 lg:text-lg pt-2">
-              เครือข่ายการค้าและซัพพลายเชน <br /> ที่เชื่อมโยงกันจริง
+            <div className="text-white/90 text-2xl lg:text-4xl pt-4">
+              ประเทศ
+            </div>
+            <p className="text-white/60 text-xl pt-2">
+              เครือข่ายการค้าและซัพพลายเชน ที่เชื่อมโยงกันจริง
             </p>
           </div>
         </div>

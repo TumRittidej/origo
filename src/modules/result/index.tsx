@@ -24,16 +24,40 @@ import {
   SelectTrigger,
   SelectValue
 } from '@/components/ui/select'
-import { useState, type FC } from 'react'
+import { useEffect, useState, type FC } from 'react'
 import { Progress } from '@/components/ui/progress'
 import { defaultReserveValues, reserveFormSchema } from './schema'
 import type { ReserveFormValues } from './@types'
 import ThankYouSection from '@/components/thankYouSection'
 import { timeOptions } from '@/constants/time'
 import { formatDate } from '@/utils/formatDate'
+import { useInView } from 'react-intersection-observer'
+import { buildStyles, CircularProgressbar } from 'react-circular-progressbar'
+import { colors } from '@/constants/colors'
 
 const ResultPage: FC = () => {
   const [isSubmitSuccess, setIsSubmitSuccess] = useState<boolean>(false)
+
+  const [current, setCurrent] = useState(89)
+  const { ref, inView } = useInView({
+    threshold: 0.3,
+    triggerOnce: true
+  })
+
+  useEffect(() => {
+    if (!inView) return
+
+    const stepTime = 100 / 89
+    let count = 0
+
+    const timer = setInterval(() => {
+      count += 1
+      setCurrent(count)
+      if (count >= 89) clearInterval(timer)
+    }, stepTime)
+
+    return () => clearInterval(timer)
+  }, [inView])
 
   const form = useForm<ReserveFormValues>({
     resolver: zodResolver(reserveFormSchema),
@@ -47,17 +71,34 @@ const ResultPage: FC = () => {
 
   return (
     <div className="mx-auto flex min-h-screen w-full max-w-3xl flex-col justify-center px-5 py-10">
-      <p className="text-center text-white pb-12 text-2xl md:text-4xl font-semibold">
+      <p className="text-center text-white pb-12 text-4xl font-semibold">
         สถานะ Market Signal ของคุณ
       </p>
       <div className="flex flex-col items-center pb-4">
-        <div className="flex h-36 w-36 md:h-48 md:w-48 items-center justify-center rounded-full border-2 border-white/20 text-5xl md:text-6xl p-2 mb-4 font-semibold text-secondary-color">
+        {/* <div className="flex h-36 w-36 md:h-48 md:w-48 items-center justify-center rounded-full border-2 border-white/20 text-5xl md:text-6xl p-2 mb-4 font-semibold text-secondary-color">
           42%
+        </div> */}
+        <div
+          ref={ref}
+          className="flex h-56 w-56 items-center justify-center text-5xl md:text-6xl p-2 mb-4 font-semibold text-secondary-color"
+        >
+          <CircularProgressbar
+            value={inView ? 89 : 0}
+            text={`${current}%`}
+            styles={buildStyles({
+              pathColor: colors['secondary-color'],
+              textColor: '#fff',
+              trailColor: colors['muted-foreground'],
+              strokeLinecap: 'round',
+              textSize: '30px'
+            })}
+            strokeWidth={5}
+          />
         </div>
-        <h2 className="text-white mt-8 font-semibold text-xl">
+        <h2 className="text-secondary-color mt-8 font-semibold text-4xl">
           เริ่มเห็นทิศทาง แต่ยังไม่ชัดเจน
         </h2>
-        <p className="text-white/60 text-center text-sm md:text-base max-w-100 pt-2">
+        <p className="text-white text-center text-2xl pt-4">
           สถานะ - เริ่มเห็นทิศทางที่ถูกต้อง มีข้อมูลแต่ยังไม่ชัดเจน
           ระบบการตัดสินใจยังขึ้นอยู่กับตัวบุคคลหรือสถานการณ์เฉพาะหน้า
         </p>
@@ -86,23 +127,23 @@ const ResultPage: FC = () => {
         </div>
       </div>
       <div className="text-center bg-primary p-6 mt-10 rounded-2xl">
-        <h2 className="text-white mt-2 font-semibold md:text-lg">
+        <h2 className="text-white mt-2 font-semibold text-2xl">
           สิ่งที่คุณจะได้รู้จาก Market Signal
         </h2>
-        <ul className="mt-4 space-y-3 text-white/75">
-          <li className="flex gap-2 items-center group justify-center md:justify-start text-sm md:text-base">
+        <ul className="mt-6 space-y-4 text-white/75 text-xl">
+          <li className="flex gap-2 items-center group justify-center md:justify-start">
             <div className="rounded-full p-1 bg-white/15">
               <FaCheck size={16} color="white" />
             </div>
             ตลาดที่ควรเร่ง มีระยะเวลาในการซื้อขาย
           </li>
-          <li className="flex gap-2 items-center group justify-center md:justify-start text-sm md:text-base">
+          <li className="flex gap-2 items-center group justify-center md:justify-start">
             <div className="rounded-full p-1 bg-white/15">
               <FaCheck size={16} color="white" />
             </div>
             ลูกค้าที่สร้างยอดขายต่อเนื่องและมีกำลังซื้อสูง
           </li>
-          <li className="flex gap-2 items-center group justify-center md:justify-start text-sm md:text-base">
+          <li className="flex gap-2 items-center group justify-center md:justify-start">
             <div className="rounded-full p-1 bg-white/15">
               <FaCheck size={16} color="white" />
             </div>
@@ -111,14 +152,14 @@ const ResultPage: FC = () => {
         </ul>
       </div>
       {!isSubmitSuccess ? (
-        <div className="text-center bg-primary p-6 mt-10 rounded-2xl">
-          <h2 className="text-white mt-2 font-semibold md:text-lg">
+        <div className="text-center border border-white/20 p-6 mt-10 rounded-2xl">
+          <h2 className="text-white mt-2 font-semibold text-2xl">
             นัดหมายเวลาคุยกับเรา
           </h2>
-          <p className="text-white/60 text-center text-sm md:text-base pt-2">
+          <p className="text-white/60 text-center text-xl pt-2">
             เลือกวันและเวลาที่สะดวก แล้วทีมงานจะติดต่อกลับเพื่อยืนยัน
           </p>
-          <div className="mt-4 max-w-70 m-auto">
+          <div className="mt-12 max-w-70 m-auto">
             <Form {...form}>
               <form
                 onSubmit={form.handleSubmit(onSubmit)}
@@ -129,14 +170,14 @@ const ResultPage: FC = () => {
                   name="date"
                   render={({ field }) => (
                     <FormItem className="flex flex-col">
-                      <FormLabel className="text-white">เลือกวันที่</FormLabel>
+                      <FormLabel>เลือกวันที่</FormLabel>
 
                       <Popover>
                         <PopoverTrigger asChild>
                           <FormControl>
                             <Button
                               variant="outline"
-                              className="text-white border-white/20 h-10 hover:bg-primary w-full justify-between text-left font-normal"
+                              className="text-white text-lg h-14 border-none hover:bg-primary w-full justify-between text-left font-normal"
                             >
                               {field.value ? (
                                 formatDate(field.value)
@@ -182,7 +223,11 @@ const ResultPage: FC = () => {
                         </FormControl>
                         <SelectContent>
                           {timeOptions.map((option) => (
-                            <SelectItem key={option.value} value={option.value}>
+                            <SelectItem
+                              key={option.value}
+                              value={option.value}
+                              disabled={option.disabled}
+                            >
                               {option.label} น.
                             </SelectItem>
                           ))}
@@ -193,7 +238,7 @@ const ResultPage: FC = () => {
                   )}
                 />
 
-                <Button type="submit" className="p-6 text-lg cursor-pointer">
+                <Button type="submit" className="p-6 text-xl cursor-pointer">
                   <div className="z-10">ยืนยันเวลานัดหมาย</div>
                 </Button>
               </form>

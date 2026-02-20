@@ -16,7 +16,7 @@ import { Button, buttonVariants } from '@/components/ui/button'
 function Calendar({
   className,
   classNames,
-  showOutsideDays = true,
+  showOutsideDays = false,
   captionLayout = 'label',
   buttonVariant = 'ghost',
   formatters,
@@ -36,10 +36,15 @@ function Calendar({
         String.raw`rtl:**:[.rdp-button\_previous>svg]:rotate-180`,
         className
       )}
+      disabled={[{ dayOfWeek: [0, 6] }, { before: new Date() }]}
       captionLayout={captionLayout}
       formatters={{
         formatMonthDropdown: (date) =>
           date.toLocaleString('default', { month: 'short' }),
+        formatCaption: (date) =>
+          date.toLocaleString('th-TH', { month: 'long', year: 'numeric' }),
+        formatWeekdayName: (date) =>
+          date.toLocaleString('th-TH', { weekday: 'short' }),
         ...formatters
       }}
       classNames={{
@@ -88,14 +93,14 @@ function Calendar({
         caption_label: cn(
           'select-none font-medium',
           captionLayout === 'label'
-            ? 'text-sm'
+            ? 'text-base'
             : 'rounded-md pl-2 pr-1 flex items-center gap-1 text-sm h-8 [&>svg]:text-muted-foreground [&>svg]:size-3.5',
           defaultClassNames.caption_label
         ),
         table: 'w-full border-collapse !border-0',
         weekdays: cn('flex', defaultClassNames.weekdays),
         weekday: cn(
-          'text-muted-foreground rounded-md flex-1 font-normal text-[0.8rem] select-none',
+          'text-muted-foreground rounded-md flex-1 font-normal text-base select-none',
           defaultClassNames.weekday
         ),
         week: cn('flex w-full mt-2', defaultClassNames.week),
@@ -129,7 +134,7 @@ function Calendar({
           defaultClassNames.outside
         ),
         disabled: cn(
-          'text-muted-foreground opacity-50',
+          'text-muted-foreground opacity-50 cursor-not-allowed',
           defaultClassNames.disabled
         ),
         hidden: cn('invisible', defaultClassNames.hidden),
@@ -207,19 +212,25 @@ function CalendarDayButton({
       className={cn(
         `
       flex aspect-square size-auto w-full min-w-(--cell-size)
-      rounded-md text-sm font-normal transition-colors
+      rounded-md text-base p-2 font-normal transition-colors
 
       bg-transparent text-white
 
-      hover:bg-secondary-color-hover
+      hover:bg-white/90
 
-      data-[today=true]:bg-secondary-color
-      data-[today=true]:text-black
-
-      data-[selected=true]:bg-white
-      data-[selected=true]:text-black
         `,
+        // วันที่เลือก (ไม่ใช่ today)
+        modifiers.selected &&
+          !modifiers.today &&
+          'bg-white text-primary hover:bg-white hover:text-primary',
+        // today ที่ยังไม่ถูกเลือก = แค่ขอบ
+        modifiers.today && !modifiers.selected && 'border ring-white',
+        // today ที่ถูกเลือก = สีปกติ
+        modifiers.today &&
+          modifiers.selected &&
+          'bg-white text-primary border hover:bg-white hover:text-primary',
         defaultClassNames.day,
+        modifiers.disabled ? 'cursor-not-allowed' : 'cursor-pointer',
         className
       )}
       {...props}

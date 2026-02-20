@@ -102,7 +102,7 @@ const ReviewsCarousel: FC<ReviewSectionPropsType> = ({ id }) => {
               ลูกค้าของเรา ว่าอย่างไรบ้าง
             </div>
           </h2>
-          <p className="mt-2 text-sm text-muted-foreground">
+          <p className="mt-2 text-muted-foreground">
             (อ้างอิงจากกรณีจริง ขอสงวนสิทธิ์ไม่เปิดเผยชื่อ)
           </p>
         </div>

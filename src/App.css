@@ -13,15 +13,6 @@
   }
 }
 
-/* .graph-dot {
-  opacity: 0;
-}
-
-.graph-dot.show {
-  animation: fadeUp 0.6s ease-out forwards;
-  animation-delay: 1.2s;
-} */
-
 @keyframes fadeUp {
   from {
     opacity: 0;

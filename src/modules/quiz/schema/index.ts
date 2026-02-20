@@ -15,8 +15,7 @@ export const quizSchema = z.object({
   q12: z.string().min(1),
   q13: z.string().min(1),
   q14: z.string().min(1),
-  q15: z.string().min(1),
-  q16: z.string().optional()
+  q15: z.string().optional()
 })
 
 export const defaultQuizSchema = {
@@ -33,6 +32,5 @@ export const defaultQuizSchema = {
   q11: '',
   q12: '',
   q14: '',
-  q15: '',
-  q16: '',
+  q15: ''
 }

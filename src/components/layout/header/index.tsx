@@ -55,7 +55,7 @@ const Header: FC = () => {
       }`}
     >
       <Container className="flex items-center justify-between w-full h-full">
-        <a href={route.home()} className="w-8">
+        <a href={route.home()} className="w-10">
           <img src={LogoMenu} alt="logo_menu" />
         </a>
 
@@ -69,7 +69,7 @@ const Header: FC = () => {
                 transition-colors duration-300 hover:text-secondary-color
                 after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0
                 after:bg-secondary-color after:transition-all after:duration-300
-                hover:after:w-full"
+                hover:after:w-full text-lg cursor-pointer"
             >
               {item.label}
             </a>
@@ -97,7 +97,7 @@ const Header: FC = () => {
         }`}
       >
         <div className="flex items-center justify-between px-5 h-16 border-b border-white/10">
-          <a href={route.home()} className="w-8">
+          <a href={route.home()} className="w-10">
             <img src={LogoMenu} alt="logo_menu" />
           </a>
           <button
@@ -118,7 +118,7 @@ const Header: FC = () => {
                 transition-colors duration-300 hover:text-secondary-color
                 after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0
                 after:bg-secondary-color after:transition-all after:duration-300
-                hover:after:w-full"
+                hover:after:w-full text-lg cursor-pointer"
             >
               {item.label}
             </a>

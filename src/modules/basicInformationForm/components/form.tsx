@@ -43,14 +43,16 @@ const LeadInfoForm: FC = () => {
 
   return (
     <Container className="py-12 max-w-200!">
-      <h1 className="text-4xl font-semibold text-secondary-color">
+      <h1 className="text-4xl leading-12 font-semibold text-secondary-color">
         เริ่มทำแบบประเมิน
+        <br />
+        เพื่อให้เราอยากรู้จักคุณมากกว่านี้
       </h1>
-      <p className="text-white/60 text-lg pb-10">
-        ข้อมูลเหล่านี้จะช่วยให้คำแนะนำที่เหมาะสมกับธุรกิจของคุณ
+      <p className="text-white/60 text-2xl mt-2 pb-10">
+        เพื่อให้คำแนะนำที่เหมาะสมกับธุรกิจของคุณ
       </p>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <FormField
             control={form.control}
             name="fullname"
@@ -209,7 +211,7 @@ const LeadInfoForm: FC = () => {
           />
 
           <div className="pt-4 text-center md:text-right">
-            <Button type="submit" className="p-6 text-lg cursor-pointer">
+            <Button type="submit" className="p-6 text-xl cursor-pointer">
               <div className="z-10">เริ่มทำแบบประเมิน</div>
             </Button>
           </div>

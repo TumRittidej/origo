@@ -76,14 +76,14 @@ const ContactPage: FC = () => {
                   name="date"
                   render={({ field }) => (
                     <FormItem className="flex flex-col">
-                      <FormLabel className="text-white">เลือกวันที่</FormLabel>
+                      <FormLabel>เลือกวันที่</FormLabel>
 
                       <Popover>
                         <PopoverTrigger asChild>
                           <FormControl>
                             <Button
                               variant="outline"
-                              className="text-white h-10 border-white/20 hover:bg-primary w-full justify-between text-left"
+                              className="text-white text-lg h-14 border-none hover:bg-primary w-full justify-between text-left font-normal"
                             >
                               {field.value ? (
                                 format(field.value, 'dd MMMM yyyy', {
@@ -131,7 +131,11 @@ const ContactPage: FC = () => {
                         </FormControl>
                         <SelectContent>
                           {timeOptions.map((option) => (
-                            <SelectItem key={option.value} value={option.value}>
+                            <SelectItem
+                              key={option.value}
+                              value={option.value}
+                              disabled={option.disabled}
+                            >
                               {option.label} น.
                             </SelectItem>
                           ))}

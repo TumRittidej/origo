@@ -29,11 +29,11 @@ const AboutUsSection: FC<AboutUsSectionPropsType> = ({ id }) => {
               ประสบการณ์ <span className="text-secondary-color">18 ปี</span>{' '}
               จากการทำตลาด และความสำเร็จจริง
             </div>
-            <div className="text-xl md:text-2xl lg:text-4xl text-white/70 mt-6">
+            <div className="text-2xl lg:text-4xl lg:leading-12 text-white/70 mt-6">
               เราจะอยู่เป็นส่วนหนึ่งในทีมของคุณ ทุกการตัดสินใจที่สำคัญ
             </div>
             <Button
-              className="cursor-pointer text-xl md:text-[28px] p-6 md:px-10 md:py-8 mt-6"
+              className="cursor-pointer text-xl md:text-3xl p-6 md:px-10 md:py-8 mt-6"
               onClick={() => navigate(route.aboutUs(), { relative: 'route' })}
             >
               <div className="z-10">ทำความรู้จัก ORIGO</div>

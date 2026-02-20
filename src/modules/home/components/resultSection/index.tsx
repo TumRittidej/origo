@@ -122,7 +122,7 @@ const ResultSection: FC<ResultSectionPropsType> = ({ id }) => {
                   suffix="%"
                   className="text-white font-semibold text-3xl md:text-5xl lg:text-7xl"
                 />
-                <div>
+                <div className="animate-bounce-up">
                   <TbArrowBigUpFilled className="text-4xl md:text-7xl text-lime-600" />
                 </div>
               </div>
@@ -138,14 +138,14 @@ const ResultSection: FC<ResultSectionPropsType> = ({ id }) => {
                   suffix="%"
                   className="text-white font-semibold text-3xl md:text-5xl lg:text-7xl"
                 />
-                <div>
+                <div className="animate-bounce-up">
                   <TbArrowBigDownFilled className="text-4xl md:text-7xl text-orange-800" />
                 </div>
               </div>
             </div>
           </div>
 
-          <p className="mt-6 text-center text-xs text-white/40">
+          <p className="mt-6 text-center text-lg text-white/40">
             กรณีศึกษาจากข้อมูลจริงของลูกค้า โดยไม่เปิดเผยชื่อและข้อมูลลูกค้า
             ตามข้อกำหนดด้านความลับทางธุรกิจ
           </p>

@@ -6,6 +6,7 @@ import App from './App.tsx'
 import { BrowserRouter } from 'react-router-dom'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import 'react-circular-progressbar/dist/styles.css'
 
 AOS.init({
   duration: 800,
