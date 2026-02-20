@@ -258,7 +258,7 @@ const quizQuestions: IQuiz[] = [
   }
 ]
 
-const descriptionByStep = {
+const descriptionByStep: Record<number, ReactNode> = {
   2: (
     <>
       <div className="text-2xl font-semibold text-secondary-color pb-2">
@@ -271,8 +271,19 @@ const descriptionByStep = {
       </div>
     </>
   ),
-  6: 'ผลวิจัยระบุว่า ทีมการตลาดที่ไม่มีการระบุ Buyer Profile (ICP) ที่ชัดเจน จะสูญเสียงบประมาณ (Marketing Waste) ไปกับกลุ่มที่ไม่ใช่ถึง 70-80% ของงบทั้งหมด',
-  10: 'องค์กรที่เปลี่ยนจากระบบ "สัญชาตญาณ" (Intuition) มาเป็น "Data-Driven" สามารถ ย่นเวลาสู่ความสำเร็จ (Time-to-Success) ได้เร็วขึ้นถึง 40%'
+  6: (
+    <>
+      ผลวิจัยระบุว่า ทีมการตลาดที่ไม่มีการระบุ Buyer Profile (ICP) ที่ชัดเจน
+      จะสูญเสียงบประมาณ (Marketing Waste) ไปกับกลุ่มที่ไม่ใช่ถึง 70-80%
+      ของงบทั้งหมด
+    </>
+  ),
+  10: (
+    <>
+      องค์กรที่เปลี่ยนจากระบบ "สัญชาตญาณ" (Intuition) มาเป็น "Data-Driven"
+      สามารถ ย่นเวลาสู่ความสำเร็จ (Time-to-Success) ได้เร็วขึ้นถึง 40%
+    </>
+  )
 }
 
 const QuizPage: FC = () => {

@@ -9,7 +9,6 @@ import { route } from '@/constants/routing'
 import AnimatedCounter from '@/components/animatedCount'
 import { buildStyles, CircularProgressbar } from 'react-circular-progressbar'
 import { colors } from '@/constants/colors'
-import CountUp from 'react-countup'
 import { useInView } from 'react-intersection-observer'
 
 type AreYouReadySectionPropsType = {
