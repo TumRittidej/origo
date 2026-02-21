@@ -10,73 +10,76 @@ import { Star } from 'lucide-react'
 import Container from '@/components/container'
 import type { FC } from 'react'
 import { BiSolidQuoteLeft } from 'react-icons/bi'
+import ImageMock1 from '@/assets/bird_mock_up.webp'
+import ImageMock2 from '@/assets/cat_mock_up.jpg'
+import ImageMock3 from '@/assets/dog_mock_up.webp'
 
 const reviews = [
   {
-    sortName: 'SP',
+    image: ImageMock1,
     name: 'Somchai P.',
     role: 'Chief Data Officer',
     text: 'ก่อนทำงานกับ Origo เราใช้เวลาส่วนใหญ่ไปกับการลองผิดลองถูกหลายเดือน ทีมช่วยวิเคราะห์ให้ชัดขึ้นมาก',
     stars: 5
   },
   {
-    sortName: 'NW',
+    image: ImageMock2,
     name: 'Nattaya W.',
     role: 'Founder & CEO',
     text: 'ทำให้เราเห็นชัดเลยว่าควรโฟกัสตลาดไหน และลูกค้าแบบไหน จากเดิมที่ตัดสินใจจากความรู้สึก',
     stars: 5
   },
   {
-    sortName: 'PK',
+    image: ImageMock3,
     name: 'Prasert K.',
     role: 'Operations Manager',
     text: 'ยอดขายโตขึ้นอย่างมีทิศทาง และงานบริหารหลายอย่างมีระบบมากขึ้นอย่างเห็นได้ชัด',
     stars: 5
   },
   {
-    sortName: 'AL',
+    image: ImageMock2,
     name: 'Anong L.',
     role: 'Export Director',
     text: 'ข้อมูลเชิงลึกช่วยให้ทีมขายคุยกับลูกค้าได้แม่นขึ้นและปิดดีลได้เร็วกว่าเดิม',
     stars: 5
   },
   {
-    sortName: 'KT',
+    image: ImageMock1,
     name: 'Krit T.',
     role: 'Commercial Lead',
     text: 'เราลดการลองผิดลองถูกได้เยอะมาก ทุกคนในทีมเห็นภาพเดียวกันและเดินไปทางเดียวกัน',
     stars: 5
   },
   {
-    sortName: 'SP',
+    image: ImageMock1,
     name: 'Somchai P.',
     role: 'Chief Data Officer',
     text: 'ก่อนทำงานกับ Origo เราใช้เวลาส่วนใหญ่ไปกับการลองผิดลองถูกหลายเดือน ทีมช่วยวิเคราะห์ให้ชัดขึ้นมาก',
     stars: 5
   },
   {
-    sortName: 'NW',
+    image: ImageMock2,
     name: 'Nattaya W.',
     role: 'Founder & CEO',
     text: 'ทำให้เราเห็นชัดเลยว่าควรโฟกัสตลาดไหน และลูกค้าแบบไหน จากเดิมที่ตัดสินใจจากความรู้สึก',
     stars: 5
   },
   {
-    sortName: 'PK',
+    image: ImageMock3,
     name: 'Prasert K.',
     role: 'Operations Manager',
     text: 'ยอดขายโตขึ้นอย่างมีทิศทาง และงานบริหารหลายอย่างมีระบบมากขึ้นอย่างเห็นได้ชัด',
     stars: 5
   },
   {
-    sortName: 'AL',
+    image: ImageMock2,
     name: 'Anong L.',
     role: 'Export Director',
     text: 'ข้อมูลเชิงลึกช่วยให้ทีมขายคุยกับลูกค้าได้แม่นขึ้นและปิดดีลได้เร็วกว่าเดิม',
     stars: 5
   },
   {
-    sortName: 'KT',
+    image: ImageMock1,
     name: 'Krit T.',
     role: 'Commercial Lead',
     text: 'เราลดการลองผิดลองถูกได้เยอะมาก ทุกคนในทีมเห็นภาพเดียวกันและเดินไปทางเดียวกัน',
@@ -91,7 +94,7 @@ type ReviewSectionPropsType = {
 const ReviewsCarousel: FC<ReviewSectionPropsType> = ({ id }) => {
   return (
     <section id={id} className="py-16 sm:py-20 bg-background">
-      <Container className="px-16!">
+      <Container className="px-12! md:px-16!">
         <div className="text-center mb-10">
           <h2 className="text-white items-center flex flex-col text-3xl sm:text-4xl md:text-5xl font-semibold">
             <span className="text-white/50">
@@ -108,25 +111,29 @@ const ReviewsCarousel: FC<ReviewSectionPropsType> = ({ id }) => {
         </div>
         <Carousel>
           <CarouselContent className="px-4">
-            {reviews.map((review, i) => (
+            {reviews.map((review) => (
               <CarouselItem
-                key={i}
-                className="px-4 py-6 sm:basis-1/2 md:basis-1/3 lg:basis-1/4"
+                key={review.name}
+                className="px-4 py-6 sm:basis-1/2 lg:basis-1/3 xl:basis-1/4"
               >
-                <Card className="h-full bg-primary border-white/5 hover:border hover:border-secondary-color/20 hover:shadow-secondary-color/20 hover:shadow-[0px_0px_20px] duration-500 transform hover:-translate-y-1">
-                  <CardContent className="p-6 flex flex-col items-center text-center min-h-95">
-                    <div className="h-24 w-24 rounded-full border border-muted-foreground/50 flex items-center justify-center text-2xl text-white font-semibold">
-                      {review.sortName}
+                <Card className="py-12 h-full bg-primary border-white/5 hover:border hover:border-secondary-color/20 hover:shadow-secondary-color/20 hover:shadow-[0px_0px_20px] duration-500 transform hover:-translate-y-1">
+                  <CardContent className="px-4 md:px-6 flex flex-col items-center text-center min-h-95">
+                    <div>
+                      <img
+                        src={review.image ?? ''}
+                        alt={review.name}
+                        className="object-cover object-center rounded-full h-28 w-28 md:h-36 md:w-36 border border-muted-foreground"
+                      />
                     </div>
 
-                    <p className="mt-12 font-medium text-white">
-                      {review.name}
+                    <p className="mt-10 font-medium text-xl text-white">
+                      {review.name ?? '-'}
                     </p>
 
-                    <p className="text-sm text-white/60">{review.role}</p>
+                    <p className="mt-2 text-lg text-white/60">{review.role}</p>
 
-                    <p className="mt-4 text-sm text-white/60 leading-relaxed">
-                      {review.text}
+                    <p className="mt-8 text-white/60 leading-relaxed">
+                      {review.text ?? '-'}
                     </p>
 
                     <div className="mt-auto flex gap-1 pt-4">
